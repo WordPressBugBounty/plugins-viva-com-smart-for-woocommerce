@@ -1,0 +1,1 @@
+# plugins-viva-com-smart-for-woocommerce
