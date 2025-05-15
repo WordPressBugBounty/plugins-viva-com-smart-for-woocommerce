@@ -15,7 +15,7 @@
     "require-dev": {
         "phpunit/phpunit": "*",
         "humbug/php-scoper": "*",
-        "vivawallet/vivawallet-php": "2.2.3"
+        "vivawallet/vivawallet-php": "2.2.4"
     },
     "repositories": {
         "0": {

@@ -1,3 +1,6 @@
+2025-05-15 - version 1.0.2
+* Add currency to transaction api calls
+
 2025-03-27 - version 1.0.1
 * Add brand color selection for smart checkout
 * Fix double call to viva ( both environments) on configuration

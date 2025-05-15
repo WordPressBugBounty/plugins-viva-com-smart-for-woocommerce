@@ -1,7 +1,7 @@
 {
     "name": "vivawallet\/vivawallet-php",
     "description": "Package to handle http requests to Viva Wallet APi for native checkout",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "type": "library",
     "require": {
         "php": ">=7.3.0",

@@ -5,7 +5,7 @@ namespace VivaComSmartCheckout\Vivawallet\VivawalletPhp;
 class Application
 {
     public const VIVAWALLET_ABBREVIATION = 'VW';
-    public const SDK_VERSION = '2.2.3';
+    public const SDK_VERSION = '2.2.4';
     public const SOURCE_NAME_FORMAT = 'Viva Wallet For %s - %s';
     public const PARAM_CANCEL_ORDER = 'cancel';
     public const BASE_URLS = ['demo' => ['accounts' => 'https://demo-accounts.vivapayments.com', 'api' => 'https://demo-api.vivapayments.com', 'default' => 'https://demo.vivapayments.com'], 'live' => ['accounts' => 'https://accounts.vivapayments.com', 'api' => 'https://api.vivapayments.com', 'default' => 'https://www.vivapayments.com']];

@@ -5,7 +5,7 @@
 **Requires at least:** 6.5
 **Tested up to:** 6.7
 **Requires PHP:** 7.4
-**Stable tag:** 1.0.1
+**Stable tag:** 1.0.2
 **License:** GPLv2
 **License URI:** [https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html](https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html)
 
@@ -54,6 +54,8 @@ For support, visit our [Help Center](https://help.viva.com/en/) or reach out via
 
 ## Changelog
 
+## 1.0.2 - 2025-05-15
+- Add currency to transaction api calls
 ## 1.0.1 - 2025-03-27
 - Add brand color picker option for smart checkout
 - Fix double request to viva during configuration

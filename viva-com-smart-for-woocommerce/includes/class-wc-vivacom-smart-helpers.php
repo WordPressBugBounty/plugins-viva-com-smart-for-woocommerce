@@ -243,7 +243,7 @@ class WC_Vivacom_Smart_Helpers {
 
 			// Transaction call.
 			$transaction_client   = new TransactionClient( $authentication );
-			$transaction_response = $transaction_client->refundTransaction( $vivacom_transaction['transaction_id'], $refund_amount, $source );
+			$transaction_response = $transaction_client->refundTransaction( $vivacom_transaction['transaction_id'], $refund_amount, $vivacom_order['currency'], $source );
 
 			WC_Vivacom_Smart_Logger::log( 'Api refund response: ' . wp_json_encode( $transaction_response->all() ) );
 
@@ -320,7 +320,7 @@ class WC_Vivacom_Smart_Helpers {
 			}
 
 			$transaction_client   = new TransactionClient( $authentication );
-			$transaction_response = $transaction_client->captureAuthorizedTransaction( $vivacom_transaction['transaction_id'], $amount );
+			$transaction_response = $transaction_client->captureAuthorizedTransaction( $vivacom_transaction['transaction_id'], $amount, array('currencyCode' => $vivacom_order['currency'] ) );
 
 			WC_Vivacom_Smart_Logger::log( 'Api Capture response: ' . wp_json_encode( $transaction_response->all() ) );
 
@@ -394,7 +394,7 @@ class WC_Vivacom_Smart_Helpers {
 			}
 
 			$transaction_client   = new TransactionClient( $authentication );
-			$transaction_response = $transaction_client->voidAuthorizedTransaction( $vivacom_transaction['transaction_id'], $amount, $source );
+			$transaction_response = $transaction_client->voidAuthorizedTransaction( $vivacom_transaction['transaction_id'], $amount, $vivacom_order['currency'], $source );
 
 			WC_Vivacom_Smart_Logger::log( 'Api Void response: ' . wp_json_encode( $transaction_response->all() ) );
 

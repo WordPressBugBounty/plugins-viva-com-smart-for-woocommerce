@@ -5,7 +5,7 @@
  *  Description: Take secure online payments on your WooCommerce store with Viva.com Smart Checkout.
  *  Author: Viva.com
  *  Author URI: https://www.viva.com/
- *  Version: 1.0.1
+ *  Version: 1.0.2
  *  Requires Plugins: woocommerce
  *  Requires at least: 6.5
  *  Tested up to: 6.7
@@ -133,7 +133,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		private function define_constants(): void {
-			define( 'WC_VIVA_COM_SMART_VERSION', '1.0.1' );
+			define( 'WC_VIVA_COM_SMART_VERSION', '1.0.2' );
 			define( 'WC_VIVA_COM_SMART_MIN_PHP_VERSION', '7.3.0' );
 			define( 'WC_VIVA_COM_SMART_MIN_WOO_VERSION', '3.5.0' );
 			define( 'WC_VIVA_COM_SMART_MAIN_FILE', __FILE__ );

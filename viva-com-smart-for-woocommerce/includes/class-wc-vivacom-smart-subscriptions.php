@@ -246,6 +246,7 @@ class WC_Vivacom_Smart_Payment_Gateway_Subscriptions extends WC_Vivacom_Smart_Pa
 
 				$args = array(
 					'sourceCode' => $source_code,
+                    'currencyCode' => $order_data['currency'],
 					'messages'   => array(
 						'customer' => $order_data['messages']['customer_message'],
 						'merchant' => $order_data['messages']['merchant_message'],

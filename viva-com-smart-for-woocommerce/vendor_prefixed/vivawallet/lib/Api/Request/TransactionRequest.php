@@ -17,7 +17,7 @@ class TransactionRequest
     }
     public static function getCreateRecurringTransaction(int $amount, array $options = []) : array
     {
-        return \array_filter(['amount' => $amount, 'sourceCode' => $options['sourceCode'] ?? null, 'merchantTrns' => $options['messages']['merchant'] ?? null, 'customerTrns' => $options['messages']['customer'] ?? null], function ($value) {
+        return \array_filter(['amount' => $amount, 'currencyCode' => Application::getCurrencyCode($options['currencyCode'], \false) ?? null, 'sourceCode' => $options['sourceCode'] ?? null, 'merchantTrns' => $options['messages']['merchant'] ?? null, 'customerTrns' => $options['messages']['customer'] ?? null], function ($value) {
             return !\is_null($value);
         });
     }
@@ -27,25 +27,25 @@ class TransactionRequest
             return !\is_null($value);
         });
     }
-    public static function getRefundTransaction(int $amount, string $sourceCode, ?string $idempotencyKey = null) : array
+    public static function getRefundTransaction(int $amount, string $currencyCode, string $sourceCode, ?string $idempotencyKey = null) : array
     {
-        return \array_filter(['amount' => $amount, 'sourceCode' => $sourceCode, 'idempotencyKey' => $idempotencyKey], function ($v) {
+        return \array_filter(['amount' => $amount, 'currencyCode' => Application::getCurrencyCode($currencyCode, \false), 'sourceCode' => $sourceCode, 'idempotencyKey' => $idempotencyKey], function ($v) {
             return !\is_null($v);
         });
     }
-    public static function getCaptureTransaction(int $amount, string $sourceCode) : array
+    public static function getCaptureTransaction(int $amount, string $currencyCode, string $sourceCode) : array
     {
-        return ['amount' => $amount, 'sourceCode' => $sourceCode];
+        return ['amount' => $amount, 'currencyCode' => Application::getCurrencyCode($currencyCode, \false), 'sourceCode' => $sourceCode];
     }
     public static function getCaptureAuthorizedTransaction(int $amount, array $options = []) : array
     {
-        return \array_filter(['amount' => $amount, 'sourceCode' => $options['sourceCode'] ?? null, 'merchantTrns' => $options['messages']['merchant'] ?? null, 'customerTrns' => $options['messages']['customer'] ?? null], function ($value) {
+        return \array_filter(['amount' => $amount, 'currencyCode' => Application::getCurrencyCode($options['currencyCode'], \false) ?? null, 'sourceCode' => $options['sourceCode'] ?? null, 'merchantTrns' => $options['messages']['merchant'] ?? null, 'customerTrns' => $options['messages']['customer'] ?? null], function ($value) {
             return !\is_null($value);
         });
     }
-    public static function getVoidAuthorizedTransaction(int $amount, string $sourceCode, ?string $idempotencyKey = null) : array
+    public static function getVoidAuthorizedTransaction(int $amount, string $currencyCode, string $sourceCode, ?string $idempotencyKey = null) : array
     {
-        return \array_filter(['amount' => $amount, 'sourceCode' => $sourceCode, 'idempotencyKey' => $idempotencyKey], function ($v) {
+        return \array_filter(['amount' => $amount, 'currencyCode' => Application::getCurrencyCode($currencyCode, \false), 'sourceCode' => $sourceCode, 'idempotencyKey' => $idempotencyKey], function ($v) {
             return !\is_null($v);
         });
     }
