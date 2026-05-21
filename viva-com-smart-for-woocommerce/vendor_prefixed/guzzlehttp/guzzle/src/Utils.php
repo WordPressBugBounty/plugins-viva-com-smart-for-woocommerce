@@ -64,21 +64,21 @@ final class Utils
         if (\defined('STDOUT')) {
             return \STDOUT;
         }
-        return \VivaComSmartCheckout\GuzzleHttp\Psr7\Utils::tryFopen('php://output', 'w');
+        return Psr7\Utils::tryFopen('php://output', 'w');
     }
     /**
      * Chooses and creates a default handler to use based on the environment.
      *
      * The returned handler is not wrapped by any default middlewares.
      *
-     * @return callable(\Psr\Http\Message\RequestInterface, array): \GuzzleHttp\Promise\PromiseInterface Returns the best handler for the given system.
+     * @return callable(\Psr\Http\Message\RequestInterface, array): Promise\PromiseInterface Returns the best handler for the given system.
      *
      * @throws \RuntimeException if no viable Handler is available.
      */
     public static function chooseHandler() : callable
     {
         $handler = null;
-        if (\defined('CURLOPT_CUSTOMREQUEST')) {
+        if (\defined('CURLOPT_CUSTOMREQUEST') && \function_exists('curl_version') && \version_compare(\curl_version()['version'], '7.21.2') >= 0) {
             if (\function_exists('curl_multi_exec') && \function_exists('curl_exec')) {
                 $handler = Proxy::wrapSync(new CurlMultiHandler(), new CurlHandler());
             } elseif (\function_exists('curl_exec')) {

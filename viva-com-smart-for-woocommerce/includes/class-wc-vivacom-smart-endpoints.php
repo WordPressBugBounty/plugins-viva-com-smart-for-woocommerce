@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 
+use VivaComSmartCheckout\Vivawallet\VivawalletPhp\Application;
+
 if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 	/**
 	 * Class WC_Vivacom_Smart_Endpoints
@@ -28,11 +30,16 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 		/**
 		 * Notify pending payment
 		 *
+		 *
 		 * @return void
 		 */
-		public function notify_pending_payment() {
-			echo '<p>' . esc_html__( 'Order is currently awaiting payment. After successful payment, we will send you an email confirmation.', 'viva-com-smart-for-woocommerce' ) . '</p>';
-		}
+        public function notify_pending_payment() {
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- read-only comparison, value is never stored or output
+            if ( 'F' !== $_GET['payment_status'] ) {
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                echo '<p>' . esc_html__( 'Order is currently awaiting payment. After successful payment, we will send you an email confirmation.', 'viva-com-smart-for-woocommerce' ) . '</p>';
+            }
+        }
 		/**
 		 * Create payment webhook
 		 */
@@ -50,6 +57,20 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 						'methods'             => 'POST',
 						'callback'            => 'WC_Vivacom_Smart_Endpoints::payments_methods_endpoint_post_callback',
 						'permission_callback' => '__return_true',
+						'args'                => array(
+							'EventTypeId' => array(
+								'required'          => true,
+								'type'              => 'integer',
+								'sanitize_callback' => 'absint',
+							),
+							'EventData'   => array(
+								'required'          => true,
+								'type'              => 'object',
+								'validate_callback' => function ( $value ) {
+									return is_array( $value ) && isset( $value['OrderCode'] );
+								},
+							),
+						),
 					),
 				)
 			);
@@ -62,7 +83,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 		 *
 		 * @return mixed|WP_Error|WP_HTTP_Response|WP_REST_Response
 		 */
-		public static function payments_methods_endpoint_get_callback( $request ) {
+		public static function payments_methods_endpoint_get_callback( $request ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed
 
 			$response_key = WC_Vivacom_Smart_Helpers::get_verification_token();
 			$data         = array( 'key' => $response_key );
@@ -71,101 +92,64 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 			return rest_ensure_response( new WP_REST_Response( $data ) );
 		}
 
-		/**
-		 * Post callback
-		 *
-		 * @param object $request request.
-		 *
-		 * @return WP_REST_Response
-		 */
-		public static function payments_methods_endpoint_post_callback( $request ) {
 
-			$parameters = json_decode( $request->get_body(), true, 512, JSON_BIGINT_AS_STRING );
-			$res        = array( 'status_message' => 'Success' );
+	/**
+	 * Post callback
+	 *
+	 * @param object $request request.
+	 *
+	 * @return WP_REST_Response
+	 */
+	public static function payments_methods_endpoint_post_callback( $request ) {
 
-			if (
-				empty( $parameters['EventData']['TransactionId'] )
-				|| empty( $parameters['EventData']['OrderCode'] )
-				|| is_null( $parameters['EventData']['TransactionTypeId'] )
-			) {
-				return new WP_REST_Response( $res, 200 );
-			}
+		$parameters = json_decode( $request->get_body(), true, 512, JSON_BIGINT_AS_STRING );
+		$res        = array( 'status_message' => 'Success' );
+		$event_data = $parameters['EventData'];
+		$event_type_id_array = array( 'transaction_created' => 1796, 'transaction_failed' => 1798 );
 
-			$order_code  = (string) $parameters['EventData']['OrderCode'];
-			$transaction = array(
-				'id'     => (string) $parameters['EventData']['TransactionId'],
-				'typeId' => (int) $parameters['EventData']['TransactionTypeId'],
-			);
+		// Validate webhook request.
+        $order_code  = (string) $event_data['OrderCode'];
+		$validation_result = WC_Vivacom_Smart_Helpers::validate_webhook_request( $event_data, $order_code );
 
-			global $wpdb;
-
-			$wc_order_id = $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT woocommerce_order_id FROM {$wpdb->prefix}viva_com_smart_wc_checkout_orders WHERE vivacom_order_code = %s ORDER BY date_add LIMIT 1",
-					$order_code
-				)
-			);
-
-			if ( ! empty( $wc_order_id ) ) {
-				$order = wc_get_order( $wc_order_id );
-				if ( empty( $order ) ) {
-					return new WP_REST_Response( $res, 200 );
-				} elseif ( $order->get_status() !== 'pending' ) {
-					return new WP_REST_Response( $res, 200 );
-				}
-			} else {
-				return new WP_REST_Response( $res, 200 );
-			}
-
-			WC_Vivacom_Smart_Logger::log( "Payments methods endpoint post callback\n Smart checkout\n Request: " . wp_json_encode( $parameters ) );
-
-			if ( isset( $parameters['EventTypeId'] ) && 1796 === $parameters['EventTypeId'] ) {
-				$viva_settings         = get_option( 'woocommerce_vivacom_smart_settings' );
-				$environment           = 'yes' === $viva_settings['test_mode'] ? 'demo' : 'live';
-				$bearer_authentication = WC_Vivacom_Smart_Helpers::get_bearer_authentication( $environment );
-				$transaction_response  = WC_Vivacom_Smart_Helpers::get_transaction( $bearer_authentication, $transaction['id'] );
-
-				if ( ! empty( $transaction_response ) && ! empty( $transaction_response->orderCode ) ) {
-					// CHECK TRANSACTION VALID AND UPDATE.
-					$transaction_order = (string) $transaction_response->orderCode;
-
-					if ( $transaction_order === $order_code ) {
-						if ( 'F' === $transaction_response->statusId ) {
-							$date      = new DateTime( $parameters['EventData']['CardExpirationDate'] );
-							$token_data = array(
-								'lastFourDigits' => ( isset( $parameters['EventData']['CardNumber'] ) && strlen( $parameters['EventData']['CardNumber'] ) > 4 ) ? substr( (string) $parameters['EventData']['CardNumber'], -4 ) : 'XXXX',
-								'cardType'       => (string) $parameters['EventData']['BankId'],
-								'expiryMonth'    => $date->format( 'm' ) ?? null,
-								'expiryYear'     => $date->format( 'Y' ) ?? null,
-							);
-							WC_Vivacom_Smart_Helpers::complete_order( $order->get_id(), $transaction, '', false );
-
-							// Check and save card token if subscription.
-							if ( WC_Vivacom_Smart_Helpers::check_subscription( $order->get_id() ) && $order->get_user() ) {
-								WC_Vivacom_Smart_Helpers::save_payment_token( $transaction['id'], $order, $token_data );
-							}
-						}
-					}
-				} else {
-					// WEBHOOK WILL BE RESEND.
-					return new WP_REST_Response( $res, 400 );
-				}
-			} else {
-				$note = __( 'Transaction failed using Viva.com Smart Checkout', 'viva-com-smart-for-woocommerce' );
-
-				if ( isset( $parameters['CorrelationId'] ) && ! empty( $parameters['CorrelationId'] ) ) {
-					$note .= __( 'with Viva-CorrelationId: ', 'viva-com-smart-for-woocommerce' ) . $parameters['CorrelationId'];
-
-				} else {
-					$note .= '.';
-				}
-
-				$order->add_order_note( $note, false );
-				$order->save();
-			}
-
+		// If validation failed, log reason and return.
+		if ( true !== $validation_result['valid'] ) {
+			WC_Vivacom_Smart_Logger::log( 'Webhook ignored: ' . $validation_result['reason'] );
 			return new WP_REST_Response( $res, 200 );
 		}
+
+		$transaction = array(
+			'id'     => (string) $event_data['TransactionId'],
+			'typeId' => (int) $event_data['TransactionTypeId'],
+		);
+
+        $wc_order_id = WC_Vivacom_Smart_Helpers::get_db_order_by_order_code( $order_code );
+        $order = wc_get_order( $wc_order_id );
+
+		WC_Vivacom_Smart_Logger::log( "Payments methods endpoint post callback\n Smart checkout\n Request: " . wp_json_encode( $parameters ) );
+
+		$event_type_id = isset( $parameters['EventTypeId'] ) ? $parameters['EventTypeId'] : null;
+
+		if ( $event_type_id_array['transaction_created'] === $event_type_id ) {
+
+			return WC_Vivacom_Smart_Helpers::handle_successful_payment( $order, $order_code, $transaction, $event_data );
+		}
+
+		if ( $event_type_id_array['transaction_failed'] === $event_type_id ) {
+			$note = __( 'Transaction failed using Viva.com Smart Checkout', 'viva-com-smart-for-woocommerce' );
+
+			if ( isset( $parameters['CorrelationId'] ) && ! empty( $parameters['CorrelationId'] ) ) {
+				$note .= __( 'with Viva-CorrelationId: ', 'viva-com-smart-for-woocommerce' ) . $parameters['CorrelationId'];
+
+			} else {
+				$note .= '.';
+			}
+
+			$order->add_order_note( $note, false );
+			$order->save();
+		}
+
+		return new WP_REST_Response( $res, 200 );
+	}
 
 		/**
 		 * Success handler
@@ -174,32 +158,60 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 		 */
 		public function check_hook_response_success() {
 
+			// phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- guard-only empty() check, values are sanitized before use below
 			if ( empty( $_GET['t'] ) || empty( $_GET['s'] ) ) {
 				wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
+                exit();
 			}
+			// phpcs:enable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
-			$viva_ref = sanitize_text_field( wp_unslash( $_GET['s'] ) );
+			$order_code = sanitize_text_field( wp_unslash( $_GET['s'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			global $wpdb;
+			$wc_order_id = WC_Vivacom_Smart_Helpers::get_db_order_by_order_code( $order_code );
 
-			$wc_order_id = $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT woocommerce_order_id FROM {$wpdb->prefix}viva_com_smart_wc_checkout_orders WHERE vivacom_order_code = %s ORDER BY date_add DESC LIMIT 1",
-					$viva_ref
-				)
-			);
+            if ( empty( $wc_order_id ) ) {
+                WC_Vivacom_Smart_Logger::log( 'Success callback: no order found for order_code ' . $order_code );
+                wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
+                exit();
+            }
 
-			if ( ! empty( $wc_order_id ) ) {
-				$order = wc_get_order( $wc_order_id );
+            $order = wc_get_order( $wc_order_id );
 
-				if ( in_array( $order->get_status(), array( 'pending', 'processing', 'completed', 'on-hold' ), true ) ) {
-					wp_safe_redirect( esc_url_raw( ( $order->get_checkout_order_received_url() ) ) );
-				} else {
-					wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
-				}
-			} else {
-				wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
-			}
+            if ( ! $order ) {
+                WC_Vivacom_Smart_Logger::log( 'Success callback: wc_get_order returned false for order_id ' . $wc_order_id );
+                wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
+                exit();
+            }
+
+            $valid_statuses = array( 'pending', 'processing', 'completed', 'on-hold' );
+
+            $transaction_id = sanitize_text_field( wp_unslash( $_GET['t'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+            if (  $order->get_status() === 'pending' && $transaction_id ) {
+                $viva_settings              = get_option( 'woocommerce_vivacom_smart_settings' );
+                $environment               = 'yes' === $viva_settings['test_mode'] ? 'demo' : 'live';
+                $bearer_authentication = WC_Vivacom_Smart_Helpers::get_bearer_authentication( $environment );
+                $transaction_response  = WC_Vivacom_Smart_Helpers::get_transaction( $bearer_authentication, $transaction_id);
+
+                if ( empty( $transaction_response ) || empty( $transaction_response->orderCode ) ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+                    WC_Vivacom_Smart_Logger::log( "Cannot retrieve transactionId  " . $transaction_id . "  for orderCode " . $order_code );
+                    wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
+                    exit();
+                }
+            }
+
+
+            if ( in_array( $order->get_status(), $valid_statuses, true ) ) {
+                $url = $order->get_checkout_order_received_url();
+                if ( isset( $transaction_response ) ) {
+                    $url = add_query_arg( 'payment_status', sanitize_text_field( $transaction_response->statusId ), $url ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+                }
+                wp_safe_redirect( esc_url_raw( $url ) );
+                exit();
+            }
+
+            wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
+            exit();
 		}
 
 		/**
@@ -209,22 +221,18 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 		 */
 		public function check_hook_response_fail() {
 
+			// phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- guard-only empty() check, value is sanitized on assignment below
 			if ( empty( $_GET['s'] ) ) {
+			// phpcs:enable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 				wc_add_notice( __( 'There was a problem processing your payment. Please try again', 'viva-com-smart-for-woocommerce' ), 'error' );
 				wp_safe_redirect( esc_url_raw( ( wc_get_checkout_url() ) ) );
 				exit();
 			}
 
-			$viva_ref  = sanitize_text_field( wp_unslash( $_GET['s'] ) );
-			$cancelled = isset( $_GET['cancel'] ) && 1 == $_GET['cancel'];
-			global $wpdb;
+			$order_code = sanitize_text_field( wp_unslash( $_GET['s'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$cancelled  = isset( $_GET['cancel'] ) && '1' === sanitize_text_field( wp_unslash( $_GET['cancel'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			$wc_order_id = $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT woocommerce_order_id FROM {$wpdb->prefix}viva_com_smart_wc_checkout_orders WHERE vivacom_order_code = %s ORDER BY date_add DESC LIMIT 1",
-					$viva_ref
-				)
-			);
+			$wc_order_id = WC_Vivacom_Smart_Helpers::get_db_order_by_order_code( $order_code );
 
 			if ( empty( $wc_order_id ) ) {
 
@@ -240,8 +248,8 @@ if ( ! class_exists( 'WC_Vivacom_Smart_Endpoints' ) ) {
 				$viva_settings         = get_option( 'woocommerce_vivacom_smart_settings' );
 				$environment           = 'yes' === $viva_settings['test_mode'] ? 'demo' : 'live';
 				$bearer_authentication = WC_Vivacom_Smart_Helpers::get_bearer_authentication( $environment );
-				$order_response        = WC_Vivacom_Smart_Helpers::get_order( $bearer_authentication, array( 'orderCode' => $viva_ref ) );
-				$state_id               = $order_response->stateId;
+				$order_response        = WC_Vivacom_Smart_Helpers::get_order( $bearer_authentication, array( 'orderCode' => $order_code ) );
+				$state_id               = $order_response->stateId; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 			}
 
 			if ( isset( $state_id ) && 2 == $state_id ) {

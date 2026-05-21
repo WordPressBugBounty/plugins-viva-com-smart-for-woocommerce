@@ -75,7 +75,7 @@ final class WC_Vivacom_Smart_Blocks_Support extends AbstractPaymentMethodType {
 			'title'       => $this->get_setting( 'title' ),
 			'description' => $this->get_setting( 'description' ),
 			'supports'    => $this->get_supported_features(),
-			'logo_url'    => WC_VIVA_COM_SMART_PLUGIN_URL . '/includes/assets/vivacom.png',
+			'logo_url'    => WC_VIVA_COM_SMART_PLUGIN_URL . '/includes/assets/viva_plugin_logo.svg',
 		);
 	}
 

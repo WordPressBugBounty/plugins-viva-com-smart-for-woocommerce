@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use \VivaComSmartCheckout\Vivawallet\VivawalletPhp\Api\TransactionClient;
+use \VivaComSmartCheckout\Vivawallet\VivawalletPhp\Application;
 
 /**
  * Class WC_Vivacom_Smart_Payment_Gateway_Subscriptions
@@ -244,33 +245,35 @@ class WC_Vivacom_Smart_Payment_Gateway_Subscriptions extends WC_Vivacom_Smart_Pa
 			if ( $bearer_authentication->hasValidToken() ) {
 				$order_data = WC_Vivacom_Smart_Helpers::get_order_data( $order );
 
-				$args = array(
-					'sourceCode' => $source_code,
-                    'currencyCode' => $order_data['currency'],
-					'messages'   => array(
-						'customer' => $order_data['messages']['customer_message'],
-						'merchant' => $order_data['messages']['merchant_message'],
-					),
-				);
-
 				$format_amount = (int) number_format( $amount, 2, '', '' );
 
 				$transaction_client = new TransactionClient( $bearer_authentication );
 
-				$transaction_response = $transaction_client->createRecurringTransaction( $recurring_transaction_id, $format_amount, $args );
+				$transaction_response = $transaction_client->createRecurringTransaction(
+					array(
+						'transactionId' => $recurring_transaction_id,
+						'amount'        => $format_amount,
+						'sourceCode'    => $source_code,
+						'currencyCode'  => $order_data['currency'],
+						'messages'      => array(
+							'customer' => $order_data['messages']['customer_message'],
+							'merchant' => $order_data['messages']['merchant_message'],
+						),
+					)
+				);
 
-				if ( $transaction_response->isSuccessful() && ! empty( $transaction_response->getBody() ) ) {
-					$transaction = array(
-						'id'     => $transaction_response->getBody()->transactionId,
-						'typeId' => 5, // id for chrgetoken.
-					);
-					$note        = __( 'Payment method used for automatic renewal: ', 'viva-com-smart-for-woocommerce' );
-					$note       .= $payment_token->get_display_name();
+			if ( $transaction_response->isSuccessful() && ! empty( $transaction_response->getBody() ) ) {
+				$transaction = array(
+					'id'     => $transaction_response->getBody()->transactionId,
+					'typeId' => Application::TRANSACTION_TYPE_IDS['Card charge - including MobilePay Online'],
+				);
+				$note        = __( 'Payment method used for automatic renewal: ', 'viva-com-smart-for-woocommerce' );
+				$note       .= $payment_token->get_display_name();
 
-					WC_Vivacom_Smart_Helpers::complete_order( $order_id, $transaction, $note, false );
+				WC_Vivacom_Smart_Helpers::complete_order( $order_id, $transaction, $note, false );
 
-					return true;
-				}
+				return true;
+			}
 			}
 		}
 

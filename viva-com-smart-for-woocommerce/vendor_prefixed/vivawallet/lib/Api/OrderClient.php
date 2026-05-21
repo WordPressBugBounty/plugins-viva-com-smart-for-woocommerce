@@ -30,17 +30,19 @@ class OrderClient
     /**
      * Create a payment order.
      *
-     * @param int $amount amount of the order.
-     * @param string $currencyCode currency of the amount.
      * @param array $options array containing options for creating order. Default empty array. Optional.
      * @param Authentication|null $authentication
      *
      * @return Response
      */
-    public function createOrder(int $amount, string $currencyCode, array $options = [], ?Authentication $authentication = null) : Response
+    public function createOrder(array $options = [], ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$authentication->getEnvironment()]['api'] . Application::ENDPOINTS['pluginOrders'], ['json' => OrderRequest::getCreateOrder($amount, $currencyCode, $options), 'headers' => ['Accept' => 'application/json', 'User-Agent' => Utils::getCustomUserAgent(), 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = OrderRequest::getCreateOrder($options);
+        $query = '';
+        $url = Utils::buildRequestUrl('api', 'pluginOrders', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
     }
     /**
      * Retrieve payment Order.
@@ -53,6 +55,9 @@ class OrderClient
     public function retrieveOrder(array $options, ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('get', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['order'] . (!empty($options['orderCode']) ? "/{$options['orderCode']}" : ''), ['headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $query = !empty($options['orderCode']) ? "/{$options['orderCode']}" : '';
+        $url = Utils::buildRequestUrl('api', 'order', $query, $authentication);
+        return $this->httpClient->request('get', $url, ['headers' => $headers]);
     }
 }

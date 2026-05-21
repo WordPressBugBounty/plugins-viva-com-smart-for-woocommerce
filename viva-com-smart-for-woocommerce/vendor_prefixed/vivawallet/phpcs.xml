@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="SDK Compatibility">
+    <description>Compatibility scans for the SDK (lib only).</description>
+    <file>lib</file>
+    <arg name="extensions" value="php"/>
+
+    <rule ref="PHPCompatibility"/>
+</ruleset>

@@ -1,3 +1,17 @@
+2026-05-21 - version 1.1.0
+* Add dynamic descriptor feature
+* Replace current logo
+* General optimization/fixes on transaction handling flow
+* Compatibility with woocommerce latest version
+* Update viva.com sdk version
+* Admin notices refactor
+* Add notice on IPs whitelisting
+* Check transaction before notice display in thank you page
+* Minimum WooCommerce version raised to 9.2 — stores on WC < 9.2 must update WooCommerce before upgrading this plugin
+* Minimum PHP version raised to 7.4
+* Security: credential fields (client ID, client secret) now masked in admin settings
+* Security: REST webhook endpoint now validates EventTypeId and EventData before processing
+
 2025-05-15 - version 1.0.2
 * Add currency to transaction api calls
 

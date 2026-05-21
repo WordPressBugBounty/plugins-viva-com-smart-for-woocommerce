@@ -1,7 +1,8 @@
+
 {
   "name": "viva-com-smart-for-woocommerce",
   "title": "Viva Wallet Smart Checkout",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/VivaWallet"
@@ -30,6 +31,8 @@
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "create-zip": "node create-zip.js",
-    "uglify:js": "uglifyjs includes/assets/js/admin-vivacom-smart.js -c -m -o includes/assets/js/admin-vivacom-smart.min.js"
+    "uglify:js": "uglifyjs includes/assets/js/admin-vivacom-smart.js includes/assets/js/admin-vivacom-smart-notices.js -c -m -o includes/assets/js/admin-vivacom-smart.min.js && uglifyjs includes/assets/js/admin-vivacom-smart-notices.js -c -m -o includes/assets/js/admin-vivacom-smart-notices.min.js",
+    "prepare-source-translate": "wp.bat i18n make-pot . languages/viva-com-smart-for-woocommerce.pot && wp.bat i18n update-po languages/viva-com-smart-for-woocommerce.pot tolgee/import/viva-com-smart-for-woocommerce-en.po",
+    "format-source-translate": "node format-po-file.js"
   }
 }

@@ -17,29 +17,49 @@ class TransactionClient
         $this->authentication = $authentication;
         $this->httpClient = new Client($config);
     }
-    public function getChargeToken(int $amount, array $options, ?Authentication $authentication = null) : Response
+    public function getChargeToken(array $options, ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$authentication->getEnvironment()]['api'] . Application::ENDPOINTS['nativeChargeToken'], ['json' => TransactionRequest::getChargeToken($amount, $options), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getChargeToken($options);
+        $query = '';
+        $url = Utils::buildRequestUrl('api', 'nativeChargeToken', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
     }
-    public function getDigitalChargeToken(string $sourceCode, string $providerId, string $validationUrl, ?Authentication $authentication = null) : Response
+    public function getDigitalChargeToken(array $options, ?Authentication $authentication = null) : Response
     {
-        return $this->httpClient->request('post', Application::BASE_URLS[$authentication->getEnvironment()]['api'] . Application::ENDPOINTS['nativeDigitalChargeToken'], ['json' => TransactionRequest::getDigitalChargeToken($sourceCode, $providerId, $validationUrl), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getDigitalChargeToken($options);
+        $query = '';
+        $url = Utils::buildRequestUrl('api', 'nativeDigitalChargeToken', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
     }
-    public function createRecurringTransaction(string $transactionId, int $amount, array $options = [], ?Authentication $authentication = null) : Response
-    {
-        $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['acquiring'] . "/{$transactionId}:charge", ['json' => TransactionRequest::getCreateRecurringTransaction($amount, $options), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader(), 'User-Agent' => Utils::getCustomUserAgent()]]);
-    }
-    public function createTransaction(int $amount, string $currencyCode, string $chargeToken, array $options = [], ?Authentication $authentication = null) : Response
-    {
-        $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['nativeTransactions'], ['json' => TransactionRequest::getCreateTransaction($amount, $currencyCode, $chargeToken, $options), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader(), 'User-Agent' => Utils::getCustomUserAgent()]]);
-    }
-    public function refundTransaction(string $transactionId, int $amount, string $currencyCode, string $sourceCode, ?string $idempotencyKey = null, ?Authentication $authentication = null) : Response
+    public function createRecurringTransaction(array $options = [], ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('delete', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['acquiring'] . "/{$transactionId}", ['query' => TransactionRequest::getRefundTransaction($amount, $currencyCode, $sourceCode, $idempotencyKey), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getCreateRecurringTransaction($options);
+        $query = "/{$options['transactionId']}:charge";
+        $url = Utils::buildRequestUrl('api', 'acquiring', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
+    }
+    public function createTransaction(array $options = [], ?Authentication $authentication = null) : Response
+    {
+        $authentication = \is_null($authentication) ? $this->authentication : $authentication;
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getCreateTransaction($options);
+        $query = '';
+        $url = Utils::buildRequestUrl('api', 'nativeTransactions', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
+    }
+    public function refundTransaction(array $options = [], ?string $idempotencyKey = null, ?Authentication $authentication = null) : Response
+    {
+        $authentication = \is_null($authentication) ? $this->authentication : $authentication;
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getRefundTransaction($options, $idempotencyKey);
+        $query = "/{$options['transactionId']}";
+        $url = Utils::buildRequestUrl('api', 'acquiring', $query, $authentication);
+        return $this->httpClient->request('delete', $url, ['query' => $payload, 'headers' => $headers]);
     }
     public function retrieveTransactionById(string $transactionId, ?Authentication $authentication = null) : Response
     {
@@ -49,21 +69,36 @@ class TransactionClient
     private function retrieveTransaction(array $options, ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('get', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['transactions'] . (!empty($options['transactionId']) ? "/{$options['transactionId']}" : ''), ['headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $query = !empty($options['transactionId']) ? "/{$options['transactionId']}" : '';
+        $url = Utils::buildRequestUrl('api', 'transactions', $query, $authentication);
+        return $this->httpClient->request('get', $url, ['headers' => $headers]);
     }
-    public function captureTransaction(string $transactionId, int $amount, string $currencyCode, string $sourceCode, ?Authentication $authentication = null) : Response
+    public function captureTransaction(array $options = [], ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['nativeTransactions'] . "/{$transactionId}", ['json' => TransactionRequest::getCaptureTransaction($amount, $currencyCode, $sourceCode), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader(), 'User-Agent' => Utils::getCustomUserAgent()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getCaptureTransaction($options);
+        $query = "/{$options['transactionId']}";
+        $url = Utils::buildRequestUrl('api', 'nativeTransactions', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
     }
-    public function captureAuthorizedTransaction(string $transactionId, int $amount, array $options = [], ?Authentication $authentication = null) : Response
+    public function captureAuthorizedTransaction(array $options = [], ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('post', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['acquiring'] . "/{$transactionId}:charge", ['json' => TransactionRequest::getCaptureAuthorizedTransaction($amount, $options), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader(), 'User-Agent' => Utils::getCustomUserAgent()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getCaptureAuthorizedTransaction($options);
+        $query = "/{$options['transactionId']}:charge";
+        $url = Utils::buildRequestUrl('api', 'acquiring', $query, $authentication);
+        return $this->httpClient->request('post', $url, ['json' => $payload, 'headers' => $headers]);
     }
-    public function voidAuthorizedTransaction(string $transactionId, int $amount, string $currencyCode, string $sourceCode, ?string $idempotencyKey = null, ?Authentication $authentication = null) : Response
+    public function voidAuthorizedTransaction(array $options = [], ?string $idempotencyKey = null, ?Authentication $authentication = null) : Response
     {
         $authentication = \is_null($authentication) ? $this->authentication : $authentication;
-        return $this->httpClient->request('delete', Application::BASE_URLS[$this->authentication->getEnvironment()]['api'] . Application::ENDPOINTS['acquiring'] . "/{$transactionId}", ['query' => TransactionRequest::getVoidAuthorizedTransaction($amount, $currencyCode, $sourceCode, $idempotencyKey), 'headers' => ['Accept' => 'application/json', 'Authorization' => $authentication->getHeader()]]);
+        $headers = Utils::buildHttpHeaders($options, $authentication->getHeader());
+        $payload = TransactionRequest::getVoidAuthorizedTransaction($options, $idempotencyKey);
+        $query = "/{$options['transactionId']}";
+        $url = Utils::buildRequestUrl('api', 'acquiring', $query, $authentication);
+        return $this->httpClient->request('delete', $url, ['query' => $payload, 'headers' => $headers]);
     }
 }

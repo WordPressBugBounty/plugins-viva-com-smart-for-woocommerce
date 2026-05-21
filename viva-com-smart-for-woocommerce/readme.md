@@ -3,9 +3,9 @@
 **Contributors:** vivawalletplugins  
 **Tags:** woocommerce, payments, viva, sepa, apple pay, google pay, bancontact, iris, ideal, giropay, p24, smart checkout  
 **Requires at least:** 6.5
-**Tested up to:** 6.7
+**Tested up to:** 6.9
 **Requires PHP:** 7.4
-**Stable tag:** 1.0.2
+**Stable tag:** 1.1.0
 **License:** GPLv2
 **License URI:** [https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html](https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html)
 
@@ -24,6 +24,18 @@ Viva.com | Smart Checkout extends WooCommerce by providing a seamless and secure
 - **Multiple Payment Methods** – Accept credit/debit cards, digital wallets, and local payment options.
 - **WooCommerce Integration** – Fully compatible with WooCommerce’s payment flow.
 - **Localized Experience** – Support for multiple languages.
+
+---
+
+## Important: Webhook security & IP allowlisting
+
+Webhook security relies on **allowlisting Viva.com's published source IP addresses at your server or firewall level**. If your hosting environment, WAF, or security plugin blocks Viva.com's outbound notifications, order statuses will not be updated and payments may appear stuck.
+
+Before going live, make sure your infrastructure allows inbound traffic from the IPs published by Viva.com. The current list and instructions are maintained at:
+
+[developer.viva.com — Whitelist the Viva addresses](https://developer.viva.com/webhooks-for-payments/#whitelist-the-viva-addresses)
+
+This requirement is independent of the plugin — it applies at the server/firewall layer and must be configured by your hosting provider or system administrator.
 
 ---
 
@@ -53,6 +65,20 @@ For support, visit our [Help Center](https://help.viva.com/en/) or reach out via
 ---
 
 ## Changelog
+
+## 1.1.0 - 2026-05-21
+- Add dynamic descriptor feature
+- Logo update
+- Optimize payment transaction handling
+- Compatibility with woocommerce latest version
+- Update viva.com sdk version
+- Admin notices refactor
+- Add notice prompting merchants to whitelist Viva.com IPs
+- Conditional render notice on thank you page
+- Minimum WooCommerce version raised to 9.2 — stores on WC < 9.2 must update WooCommerce before upgrading this plugin
+- Minimum PHP version raised to 7.4
+- Security: credential fields (client ID, client secret) now masked in admin settings
+- Security: REST webhook endpoint now validates EventTypeId and EventData before processing
 
 ## 1.0.2 - 2025-05-15
 - Add currency to transaction api calls

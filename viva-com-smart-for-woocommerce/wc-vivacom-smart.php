@@ -1,16 +1,17 @@
 <?php
+// phpcs:disable WordPress.Files.FileName.InvalidClassFileName -- main plugin entry file, not a pure class file
 /**
  * Plugin Name: Viva.com | Smart Checkout for WooCommerce
  *  Plugin URI: https://wordpress.org/plugins/viva-com-smart-for-woocommerce
  *  Description: Take secure online payments on your WooCommerce store with Viva.com Smart Checkout.
  *  Author: Viva.com
  *  Author URI: https://www.viva.com/
- *  Version: 1.0.2
+ *  Version: 1.1.0
  *  Requires Plugins: woocommerce
  *  Requires at least: 6.5
- *  Tested up to: 6.7
+ *  Tested up to: 6.9
  *  WC requires at least: 9.2
- *  WC tested up to: 9.5
+ *  WC tested up to: 10.7
  *  Text Domain: viva-com-smart-for-woocommerce
  *  License: GPLv2
  *  Domain Path: /languages
@@ -54,7 +55,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * Construct
 		 */
 		private function __construct() {
-			add_action( 'plugins_loaded', array( $this, 'init' ) );
+			add_action( 'plugins_loaded', array( $this, 'init' ));
 		}
 
 		/**
@@ -73,16 +74,10 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * Init
 		 */
 		public function init() {
-			try {
-				$this->define_constants();
-				$this->validate_setup();
-				$this->load_plugin_files();
-				$this->setup_options();
-				$this->add_hooks();
-				$this->add_filters();
-				$this->setup_locale();
-			} catch ( Exception $e ) {
-				$errors = unserialize( $e->getMessage() );
+			$this->define_constants();
+
+			$errors = $this->validate_setup();
+			if ( ! empty( $errors ) ) {
 				add_action(
 					'admin_notices',
 					function () use ( $errors ) {
@@ -91,12 +86,18 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 				);
 				return;
 			}
+
+			$this->load_plugin_files();
+			$this->setup_options();
+			$this->add_hooks();
+			$this->add_filters();
+			$this->setup_locale();
 		}
 
 		/**
 		 * Validates the WooCommerce and plugin setup requirements.
 		 *
-		 * @throws \Exception If WooCommerce is not installed, active, or does not meet the minimum version requirement.
+		 * @return array List of error messages. Empty when validation passes.
 		 */
 		private function validate_setup() {
 			$errors = array();
@@ -104,7 +105,8 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 			// Woocommerce needs to be active.
 			if ( ! class_exists( 'WooCommerce' ) ) {
 				$errors[] = sprintf(
-					esc_html__(
+					/* translators: %s: WooCommerce download link */
+					__(
 						'The Viva.com payment gateway requires WooCommerce. Download link %s here.',
 						'viva-com-smart-for-woocommerce'
 					),
@@ -115,16 +117,17 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 			// WooCommerce needs to adhere to our minimum supported WC versions.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, WC_VIVA_COM_SMART_MIN_WOO_VERSION, '<' ) ) {
 				$errors[] = sprintf(
-					esc_html__(
-						'The Viva.com payment gateway requires WooCommerce. Download link %s here.',
+					/* translators: 1: required WooCommerce version, 2: currently installed WooCommerce version, 3: link to plugins update page */
+					__(
+						'Viva.com requires WooCommerce %1$s or higher. You are running WooCommerce %2$s. Please %3$s.',
 						'viva-com-smart-for-woocommerce'
 					),
-					'<a href="https://woocommerce.com/" target="_blank">WooCommerce</a>'
+					WC_VIVA_COM_SMART_MIN_WOO_VERSION,
+					WC_VERSION,
+					'<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">' . esc_html__( 'update WooCommerce', 'viva-com-smart-for-woocommerce' ) . '</a>'
 				);
 			}
-			if ( ! empty( $errors ) ) {
-				throw new \Exception( serialize( $errors ) );
-			}
+			return $errors;
 		}
 
 		/**
@@ -133,9 +136,9 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		private function define_constants(): void {
-			define( 'WC_VIVA_COM_SMART_VERSION', '1.0.2' );
-			define( 'WC_VIVA_COM_SMART_MIN_PHP_VERSION', '7.3.0' );
-			define( 'WC_VIVA_COM_SMART_MIN_WOO_VERSION', '3.5.0' );
+			define( 'WC_VIVA_COM_SMART_VERSION', '1.1.0' );
+			define( 'WC_VIVA_COM_SMART_MIN_PHP_VERSION', '7.4.0' );
+			define( 'WC_VIVA_COM_SMART_MIN_WOO_VERSION', '9.2.0' );
 			define( 'WC_VIVA_COM_SMART_MAIN_FILE', __FILE__ );
 			define( 'WC_VIVA_COM_SMART_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 			define( 'WC_VIVA_COM_SMART_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -227,7 +230,69 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		private function add_hooks(): void {
 			add_action( 'woocommerce_blocks_loaded', array( $this, 'woocommerce_vivacom_smart_woocommerce_blocks_support' ) );
 			add_action( 'before_woocommerce_init', array( $this, 'woocommerce_vivacom_smart_before_woocommerce_init' ) );
-		}
+            add_action( 'woocommerce_order_action_wc_viva_smart_capture', array( $this, 'woocommerce_vivacom_smart_capture' ) );
+            add_action( 'woocommerce_order_action_wc_viva_smart_void', array( $this, 'woocommerce_vivacom_smart_void' ) );
+
+        }
+
+        /**
+         * Captures a Viva.com Smart payment for a WooCommerce order.
+         *
+         * @param object|WC_Order $order order.
+         *
+         * @return  bool|WP_Error
+         */
+        public function woocommerce_vivacom_smart_capture( $order ) {
+            $viva_settings = get_option( 'woocommerce_vivacom_smart_settings', array() );
+            $environment = 'yes' === $viva_settings['test_mode'] ? 'demo' : 'live';
+            $bearer_authentication = WC_Vivacom_Smart_Helpers::get_bearer_authentication( $environment );
+
+            if ( $bearer_authentication->hasValidToken() ) {
+                $result = WC_Vivacom_Smart_Helpers::process_capture( $bearer_authentication, $order );
+                if ( is_wp_error( $result ) ) {
+                    /* translators: %s: error message */
+                    $order->add_order_note( sprintf( __( 'Capture pre-authorized payment failed: %s', 'viva-com-smart-for-woocommerce' ), $result->get_error_message() ) );
+                } else {
+                    /* translators: %s: transaction ID */
+                    $order->add_order_note( sprintf( __( 'Capture pre-authorized payment successful. Transaction ID: %s', 'viva-com-smart-for-woocommerce' ), $result['transaction_id'] ) );
+                    $order->update_status( 'completed' );
+                }
+                $order->save();
+            } else {
+                /* translators: %s: environment name (LIVE or DEMO) */
+                return new WP_Error( 'error', sprintf( __( 'Viva.com: Your %s credentials are NOT valid. Please check your credentials!', 'viva-com-smart-for-woocommerce' ), $environment ) );
+            }
+        }
+
+        /**
+         * Void a Viva.com Smart payment for a WooCommerce order.
+         *
+         * @param object|WC_Order $order order.
+         *
+         * @return bool|WP_Error
+         */
+        public function woocommerce_vivacom_smart_void( $order ) {
+            $viva_settings = get_option( 'woocommerce_vivacom_smart_settings', array() );
+            $environment = 'yes' === $viva_settings['test_mode'] ? 'demo' : 'live';
+            $source                = 'demo' === $environment ? $viva_settings['demo_source_code'] : $viva_settings['source_code'];
+            $bearer_authentication = WC_Vivacom_Smart_Helpers::get_bearer_authentication( $environment );
+
+            if ( $bearer_authentication->hasValidToken() ) {
+                $result = WC_Vivacom_Smart_Helpers::process_void( $bearer_authentication, $source, $order );
+                if ( is_wp_error( $result ) ) {
+                    /* translators: %s: error message */
+                    $order->add_order_note( sprintf( __( 'Cancel of pre-authorized payment failed: %s', 'viva-com-smart-for-woocommerce' ), $result->get_error_message() ) );
+                } else {
+                    /* translators: %s: transaction ID */
+                    $order->add_order_note( sprintf( __( 'Cancel of pre-authorized payment successful. Transaction ID: %s', 'viva-com-smart-for-woocommerce' ), $result['transaction_id'] ) );
+                    $order->update_status( 'cancelled' );
+                }
+                $order->save();
+            } else {
+                /* translators: %s: environment name (LIVE or DEMO) */
+                return new WP_Error( 'error', sprintf( __( 'Viva.com: Your %s credentials are NOT valid. Please check your credentials!', 'viva-com-smart-for-woocommerce' ), $environment ) );
+            }
+        }
 
 		/**
 		 * Woocommerce blocks support
@@ -265,6 +330,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'add_gateways' ) );
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+            add_filter( 'woocommerce_order_actions', array( $this, 'woocommerce_vivacom_smart_custom_actions' ) );
 		}
 
 		/**
@@ -316,6 +382,19 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 			}
 			return (array) $links;
 		}
+
+        /**
+         * Adds custom actions for Viva.com Smart payments in WooCommerce.
+         *
+         * @param array $actions An array of existing WooCommerce payment actions.
+         *
+         * @return array Modified array including Viva.com Smart custom actions.
+         */
+        public function woocommerce_vivacom_smart_custom_actions( $actions ) {
+            $actions['wc_viva_smart_capture'] = __( 'Capture Viva.com Payment', 'viva-com-smart-for-woocommerce' );
+            $actions['wc_viva_smart_void']    = __( 'Void Viva.com Payment', 'viva-com-smart-for-woocommerce' );
+            return $actions;
+        }
 
 		/**
 		 * Sets up the plugin's locale for translation.
@@ -515,24 +594,6 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		public function deactivate(): void {
 		}
 
-		/**
-		 * Unistall the plugin.
-		 *
-		 * @return void
-		 */
-		public static function uninstall(): void {
-			// global $wpdb;
-			// Delete all options
-			// delete_option('woocommerce_vivacom_smart_settings');
-			// delete_transient('viva_com_smart_wc_admin_notice');
-			//
-			// Delete all tables
-			// $db_prefix = $wpdb->prefix;
-			// $wpdb->query("DROP TABLE IF EXISTS {$db_prefix}viva_com_smart_wc_checkout_transaction_types");
-			// $wpdb->query("DROP TABLE IF EXISTS {$db_prefix}viva_com_smart_wc_checkout_recurring");
-			// $wpdb->query("DROP TABLE IF EXISTS {$db_prefix}viva_com_smart_wc_checkout_transactions");
-			// $wpdb->query("DROP TABLE IF EXISTS {$db_prefix}viva_com_smart_wc_checkout_orders");
-		}
 	}
 }
 
@@ -541,5 +602,3 @@ $vivacom = WC_Vivacom_Smart::get_instance();
 register_activation_hook( __FILE__, array( $vivacom, 'activate' ) );
 
 register_deactivation_hook( __FILE__, array( $vivacom, 'deactivate' ) );
-
-// register_uninstall_hook(__FILE__, [ WC_Vivacom_Smart::class, 'uninstall' ]);
