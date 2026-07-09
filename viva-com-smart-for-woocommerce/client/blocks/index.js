@@ -4,9 +4,7 @@ import { registerPaymentMethod } from '@woocommerce/blocks-registry';
 
 //Vivacom data to global object
 const getVivaComData = () => {
-    const vivaComData = getSetting( 'vivacom_smart_data', null );
-    if (!vivaComData) throw new Error('VivaWallet form data not available');
-    return vivaComData;
+    return getSetting( 'vivacom_smart_data', null ) || {};
 }
 
 const Content = () => {

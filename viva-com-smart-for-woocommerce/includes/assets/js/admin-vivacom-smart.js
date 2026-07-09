@@ -144,5 +144,77 @@ jQuery( document ).ready(
 		descriptor.on('input', function(e) {
 			jQuery('#vivacom_descriptor_preview_text').html(e.target.value);
 		});
+
+		var installmentsField = jQuery( '#woocommerce_vivacom_smart_installments' );
+		var installmentsError = vivacom_smart_admin_trans.installmentsError;
+
+		// Validates the instalments pattern: comma-separated amount:instalments pairs (e.g. 90:3,180:6). Empty is allowed.
+		function isValidInstallments( value ) {
+			var installmentsPattern = jQuery.trim( value );
+
+			if ( installmentsPattern === '' ) {
+				return true;
+			}
+
+			var pairs = installmentsPattern.split( ',' );
+
+			for ( var i = 0; i < pairs.length; i++ ) {
+				if ( ! /^\s*\d+(\.\d+)?\s*:\s*\d+\s*$/.test( pairs[ i ] ) ) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		function toggleInstallmentsError( show ) {
+			var error = installmentsField.next( '.vivacom-installments-error' );
+
+			if ( show ) {
+				installmentsField.css( 'border-color', '#dc3232' );
+				if ( ! error.length ) {
+					installmentsField.after(
+						'<p class="vivacom-installments-error" style="color:#dc3232; margin:4px 0 0;">' + installmentsError + '</p>'
+					);
+				}
+			} else {
+				installmentsField.css( 'border-color', '' );
+				error.remove();
+			}
+		}
+
+		if ( installmentsField.length ) {
+			var installmentsForm = installmentsField.closest( 'form' );
+
+			function refreshInstallmentsState() {
+				// Skip while the field is hidden (advanced settings disabled) so a
+				// stale saved value doesn't show an error against an invisible field.
+				if ( ! installmentsField.is( ':visible' ) ) {
+					toggleInstallmentsError( false );
+					return;
+				}
+				toggleInstallmentsError( ! isValidInstallments( installmentsField.val() ) );
+			}
+
+			installmentsField.on( 'input blur', refreshInstallmentsState );
+
+			installmentsForm.on( 'submit', function( e ) {
+				if ( installmentsField.is( ':visible' ) && ! isValidInstallments( installmentsField.val() ) ) {
+					e.preventDefault();
+					refreshInstallmentsState();
+					jQuery( 'html, body' ).animate(
+						{ scrollTop: installmentsField.closest( 'tr' ).offset().top - 100 },
+						300
+					);
+					installmentsField.focus();
+				}
+			} );
+
+			// Re-evaluate when the field is shown/hidden via the advanced settings toggle.
+			advanced_settings_checkbox.on( 'change', refreshInstallmentsState );
+
+			// Run once on load to cover an already-saved invalid value.
+			refreshInstallmentsState();
+		}
 	}
 )

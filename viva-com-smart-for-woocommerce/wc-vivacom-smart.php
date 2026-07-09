@@ -6,12 +6,12 @@
  *  Description: Take secure online payments on your WooCommerce store with Viva.com Smart Checkout.
  *  Author: Viva.com
  *  Author URI: https://www.viva.com/
- *  Version: 1.1.0
+ *  Version: 1.1.1
  *  Requires Plugins: woocommerce
  *  Requires at least: 6.5
- *  Tested up to: 6.9
+ *  Tested up to: 7.0
  *  WC requires at least: 9.2
- *  WC tested up to: 10.7
+ *  WC tested up to: 10.9
  *  Text Domain: viva-com-smart-for-woocommerce
  *  License: GPLv2
  *  Domain Path: /languages
@@ -136,7 +136,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		private function define_constants(): void {
-			define( 'WC_VIVA_COM_SMART_VERSION', '1.1.0' );
+			define( 'WC_VIVA_COM_SMART_VERSION', '1.1.1' );
 			define( 'WC_VIVA_COM_SMART_MIN_PHP_VERSION', '7.4.0' );
 			define( 'WC_VIVA_COM_SMART_MIN_WOO_VERSION', '9.2.0' );
 			define( 'WC_VIVA_COM_SMART_MAIN_FILE', __FILE__ );
@@ -228,7 +228,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		private function add_hooks(): void {
-			add_action( 'woocommerce_blocks_loaded', array( $this, 'woocommerce_vivacom_smart_woocommerce_blocks_support' ) );
+			add_action( 'woocommerce_blocks_payment_method_type_registration', array( $this, 'woocommerce_vivacom_smart_woocommerce_blocks_support' ) );
 			add_action( 'before_woocommerce_init', array( $this, 'woocommerce_vivacom_smart_before_woocommerce_init' ) );
             add_action( 'woocommerce_order_action_wc_viva_smart_capture', array( $this, 'woocommerce_vivacom_smart_capture' ) );
             add_action( 'woocommerce_order_action_wc_viva_smart_void', array( $this, 'woocommerce_vivacom_smart_void' ) );
@@ -296,17 +296,22 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 
 		/**
 		 * Woocommerce blocks support
+		 *
+		 * @param Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry Block payment method registry.
+		 *
+		 * @return void
 		 */
-		public function woocommerce_vivacom_smart_woocommerce_blocks_support(): void {
-			if ( class_exists( 'Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType' ) ) {
-				require_once __DIR__ . '/includes/class-wc-vivacom-smart-blocks-support.php';
-				add_action(
-					'woocommerce_blocks_payment_method_type_registration',
-					function ( Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry ) {
-						$payment_method_registry->register( new WC_Vivacom_Smart_Blocks_support() );
-					}
-				);
+		public function woocommerce_vivacom_smart_woocommerce_blocks_support( $payment_method_registry ): void {
+			if ( ! class_exists( 'Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType' ) ) {
+				return;
 			}
+
+			if ( $payment_method_registry->is_registered( 'vivacom_smart' ) ) {
+				return;
+			}
+
+			require_once __DIR__ . '/includes/class-wc-vivacom-smart-blocks-support.php';
+			$payment_method_registry->register( new WC_Vivacom_Smart_Blocks_Support() );
 		}
 
 		/**

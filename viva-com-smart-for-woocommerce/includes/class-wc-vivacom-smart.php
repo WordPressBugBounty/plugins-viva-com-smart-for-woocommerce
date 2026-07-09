@@ -439,6 +439,7 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
                             'testAmount' => __('Amount', 'viva-com-smart-for-woocommerce'),
                             'yourCompanyName' => __('YourCompanyName', 'viva-com-smart-for-woocommerce'),
                             'currencySymbol' => $currency_symbol,
+                            'installmentsError' => __('Invalid instalments format. Use amount:instalments pairs separated by commas, e.g. 90:3,180:6.', 'viva-com-smart-for-woocommerce'),
                         );
 
                         wp_localize_script( 'vivacom_smart_admin', 'vivacom_smart_admin_trans', $translations );
@@ -778,6 +779,42 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
 	 */
 	public function init_form_fields() {
 		$this->form_fields = WC_Vivacom_Smart_Helpers::init_form_fields();
+	}
+
+	/**
+	 * Validate the instalments field on save.
+	 *
+	 * WooCommerce auto-invokes it during process_admin_options() (WC_Settings_API)
+	 * via the validate_{field_key}_field naming convention (field key = "installments").
+	 * The returned value is what gets persisted.
+	 *
+	 * Expects comma-separated amount:instalments pairs (e.g. 90:3,180:6). An empty
+	 * value is allowed. On invalid input an admin error is shown and the previously
+	 * saved value is kept. Mirrors the client-side check in admin-vivacom-smart.js.
+	 *
+	 * @param string $key   Field key.
+	 * @param string $value Posted value.
+	 *
+	 * @return string
+	 */
+	public function validate_installments_field( $key, $value ) {
+		$installments_pattern = trim( (string) $value );
+
+		if ( '' === $installments_pattern ) {
+			return '';
+		}
+
+		foreach ( explode( ',', $installments_pattern ) as $pair ) {
+			if ( ! preg_match( '/^\s*\d+(\.\d+)?\s*:\s*\d+\s*$/', $pair ) ) {
+				WC_Admin_Settings::add_error(
+					__( 'Invalid instalments format. Use amount:instalments pairs separated by commas, e.g. 90:3,180:6.', 'viva-com-smart-for-woocommerce' )
+				);
+
+				return $this->get_option( $key );
+			}
+		}
+
+		return $installments_pattern;
 	}
 
 	/**

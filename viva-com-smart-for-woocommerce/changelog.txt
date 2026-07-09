@@ -1,3 +1,8 @@
+2026-07-07 - version 1.1.1
+* Validate the instalments setting with clear error messaging
+* Update payment method registration on block-based Cart/Checkout for latest WooCommerce versions
+* Compatibility with WooCommerce 10.9 and WordPress 7
+
 2026-05-21 - version 1.1.0
 * Add dynamic descriptor feature
 * Replace current logo

@@ -2,7 +2,7 @@
 {
   "name": "viva-com-smart-for-woocommerce",
   "title": "Viva Wallet Smart Checkout",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/VivaWallet"
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@woocommerce/dependency-extraction-webpack-plugin": "^3.0.1",
-    "@wordpress/scripts": "30.4.0",
+    "@wordpress/scripts": "32.5.0",
     "archiver": "^7.0.1",
     "rimraf": "^6.0.1",
     "uglify-js": "^3.19.3"
