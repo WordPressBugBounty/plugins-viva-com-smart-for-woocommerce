@@ -1,3 +1,11 @@
+2026-09-24 - version 1.2.0
+* Distinct admin notice when the Viva.com account has reached its webhook per event type limit
+* Fix translations issues on WordPress 6.7 and later
+* Add Estonian, Lithuanian, Latvian, Slovak and Slovenian translations
+* Remove the jQuery dependency from the admin settings screen
+* Move the Smart Checkout redirect into a separate, cache-friendly script
+* Compatibility with WooCommerce 11.1 and WordPress 7.1
+
 2026-07-07 - version 1.1.1
 * Validate the instalments setting with clear error messaging
 * Update payment method registration on block-based Cart/Checkout for latest WooCommerce versions

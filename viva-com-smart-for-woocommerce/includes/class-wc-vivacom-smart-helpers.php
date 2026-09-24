@@ -33,6 +33,7 @@ class WC_Vivacom_Smart_Helpers {
 
 	const WEBHOOK_NAMESPACE = 'wc_vivacom_smart/v1';
 	const WEBHOOK_URI       = '/payments_methods_endpoint';
+	const WEBHOOK_LIMIT_REACHED = 'SecurityCreateWebhookFailedLimitReached';
 
 	const GRANT_TYPE = 'client_credentials';
 
@@ -43,17 +44,38 @@ class WC_Vivacom_Smart_Helpers {
 	 *
 	 * @param Authentication $authentication authentication.
 	 *
-	 * @return bool
+	 * @return string 'yes' when created, 'limit_error' when the Viva account is at
+	 *                its webhook limit, 'error' for any other failure.
 	 */
 	public static function create_webhook( $authentication ) {
 		$webhook_client   = new WebhookClient( $authentication );
 		$webhook_url      = get_rest_url( null, '/' . self::WEBHOOK_NAMESPACE . self::WEBHOOK_URI );
 		$webhook_response = $webhook_client->createWebhook( $webhook_url );
-		if ( ! $webhook_response->isSuccessful() ) {
-			WC_Vivacom_Smart_Logger::log( "Api webhook \nURL webhook: \n" . $webhook_url . "\nResult: \n" . wp_json_encode( $webhook_response->getBody() ) );
+
+		if ( $webhook_response->isSuccessful() ) {
+			return 'yes';
 		}
 
-		return $webhook_response->isSuccessful();
+		WC_Vivacom_Smart_Logger::log( "Api webhook \nURL webhook: \n" . $webhook_url . "\nResult: \n" . wp_json_encode( $webhook_response->getBody() ) );
+
+		return self::is_webhook_limit_error( $webhook_response ) ? 'limit_error' : 'error';
+	}
+
+	/**
+	 * Whether a failed createWebhook response is Viva's webhook limit reached.
+	 * Private: create_webhook() is the only caller, and keeping it that way stops
+	 * this class growing another public static helper.
+	 *
+	 * @param Response $webhook_response Response from createWebhook().
+	 *
+	 * @return bool
+	 */
+	private static function is_webhook_limit_error( $webhook_response ) {
+		$body = $webhook_response->getBody();
+
+		return is_object( $body )
+			&& isset( $body->message )
+			&& self::WEBHOOK_LIMIT_REACHED === $body->message;
 	}
 
 	/**

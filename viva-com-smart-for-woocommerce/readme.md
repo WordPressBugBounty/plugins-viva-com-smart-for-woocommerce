@@ -3,9 +3,9 @@
 **Contributors:** vivawalletplugins  
 **Tags:** woocommerce, payments, viva, sepa, apple pay, google pay, bancontact, iris, ideal, giropay, p24, smart checkout  
 **Requires at least:** 6.5
-**Tested up to:** 7.0
+**Tested up to:** 7.1
 **Requires PHP:** 7.4
-**Stable tag:** 1.1.1
+**Stable tag:** 1.2.0
 **License:** GPLv2
 **License URI:** [https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html](https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html)
 
@@ -65,6 +65,19 @@ For support, visit our [Help Center](https://help.viva.com/en/) or reach out via
 ---
 
 ## Changelog
+
+## 1.2.0 - 2026-09-16
+- Distinct admin notice when the Viva.com account has reached its webhook per event type limit
+- Fix translations not loading on WordPress 6.7 and later
+- Add Estonian, Lithuanian, Latvian, Slovak and Slovenian translations
+- Remove the jQuery dependency from the admin settings screen
+- Move the Smart Checkout redirect into a separate, cache-friendly script
+- Compatibility with WooCommerce 11.1 and WordPress 7.1
+
+## 1.1.1 - 2026-07-07
+- Validate the instalments setting with clear error messaging
+- Update payment method registration on block-based Cart/Checkout for latest WooCommerce versions
+- Compatibility with WooCommerce 10.9 and WordPress 7
 
 ## 1.1.0 - 2026-05-21
 - Add dynamic descriptor feature

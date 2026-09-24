@@ -1,0 +1,528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-17T13:18:45+00:00\n"
+"PO-Revision-Date: 2026-07-17T13:18:45+00:00\n"
+"Language: lv\n"
+"Plural-Forms: nplurals = 3; plural = (n % 10 === 1 && n % 100 !== 11 ? 0 : n !== 0 ? 1 : 2)\n"
+"X-Generator: Tolgee\n"
+
+#: includes/class-wc-vivacom-smart-helpers.php:945
+msgid "Advanced settings"
+msgstr "Papildu iestatījumi"
+
+#: includes/class-wc-vivacom-smart.php:646
+msgid "Amount"
+msgstr "Summa"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1012
+msgid "Brand color"
+msgstr "Zīmola krāsa"
+
+#: includes/class-wc-vivacom-smart.php:530
+msgid "But there was an error trying to create a new source."
+msgstr "Bet radās kļūda, mēģinot izveidot jaunu avotu."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:558
+msgid "But your %1$s source code: %2$s has been BLOCKED. Please check your latest email from Viva.com Support for more info."
+msgstr "Bet jūsu %s avota kods: %s ir BLOĶĒTS. Lūdzu, skatiet savu jaunāko e-pastu no Viva.com atbalsta dienesta, lai iegūtu vairāk informācijas."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:581
+msgid "But your %1$s source code: %2$s has wrong redirection urls."
+msgstr "Bet jūsu %s avota kodā: %s ir nepareizi novirzīšanas URL."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:565
+msgid "But your %1$s source code: %2$s is NOT active."
+msgstr "Bet jūsu %s avota kods: %s NAV aktīvs."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:590
+msgid "But your %1$s source code: %2$s is not found."
+msgstr "Bet jūsu %s avota kods: %s nav atrasts."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:572
+msgid "But your %1$s source code: %2$s is not valid for this domain."
+msgstr "Bet jūsu %s avota kods: %s nav derīgs šim domēnam."
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: includes/class-wc-vivacom-smart.php:250
+msgid "Cancel of prauthorized payment failed: %s"
+msgstr "Autorizētā maksājuma atcelšana neizdevās: %s"
+
+#: includes/class-wc-vivacom-smart.php:252
+msgid "Cancel of prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Veiksmīga autorizētā maksājuma atcelšana: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:223
+msgid "Capture prauthorized payment failed: %s"
+msgstr "Autorizētā maksājuma tveršana neizdevās: %s"
+
+#: includes/class-wc-vivacom-smart.php:225
+msgid "Capture prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Fiksēt autorizēto maksājumu veiksmīgi: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:202
+msgid "Capture Viva.com Payment"
+msgstr "Tveršana Viva.com maksājums"
+
+#: includes/class-wc-vivacom-smart.php:531
+#: includes/class-wc-vivacom-smart.php:573
+#: includes/class-wc-vivacom-smart.php:582
+#: includes/class-wc-vivacom-smart.php:591
+msgid "Check the sources selection box in advanced settings to see your available source codes and set one from there if available."
+msgstr "Papildu iestatījumos atzīmējiet avotu atlases rūtiņu, lai redzētu pieejamos avota kodus, un iestatiet to, ja tas ir pieejams."
+
+#: includes/class-wc-vivacom-smart-helpers.php:918
+msgid "Client ID provided by Viva.com."
+msgstr "Klienta ID, ko nodrošina Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:924
+msgid "Client ID provided by Viva.com. "
+msgstr "Klienta ID, ko nodrošina Viva.com. "
+
+#: includes/class-wc-vivacom-smart-helpers.php:930
+#: includes/class-wc-vivacom-smart-helpers.php:936
+msgid "Client Secret provided by Viva.com."
+msgstr "Klienta noslēpums, ko nodrošina Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1007
+msgid "Completed"
+msgstr "Pabeigts"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1018
+msgid "Customer bank statement suffix"
+msgstr "Klienta bankas izraksta sufikss"
+
+#: includes/class-wc-vivacom-smart-helpers.php:922
+msgid "Demo Client ID"
+msgstr "Demonstrācijas klienta ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:934
+msgid "Demo Client Secret"
+msgstr "Demo klienta noslēpums"
+
+#: includes/class-wc-vivacom-smart-helpers.php:901
+msgid "Demo mode"
+msgstr "Demonstrācijas režīms"
+
+#: includes/class-wc-vivacom-smart-helpers.php:912
+msgid "Demo mode credentials"
+msgstr "Demonstrācijas režīma akreditācijas dati"
+
+#: includes/class-wc-vivacom-smart-helpers.php:989
+msgid "Demo Source Code List"
+msgstr "Demonstrācijas avota kodu saraksts"
+
+#: includes/class-wc-vivacom-smart-helpers.php:970
+msgid "Description"
+msgstr "Apraksts"
+
+#: wc-vivacom-smart.php:312
+msgid "Documentation"
+msgstr "Dokumentācija"
+
+#: includes/class-wc-vivacom-smart-helpers.php:903
+msgid "Enable demo mode"
+msgstr "Iespējot demonstrācijas režīmu"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1032
+msgid "Enable Preauthorized Payments"
+msgstr "Iespējot iepriekš autorizētus maksājumus"
+
+#: includes/class-wc-vivacom-smart-helpers.php:998
+msgid "Enable Viva.com logo on checkout page (default = yes)."
+msgstr "Iespējot Viva.com logotipu norēķinu lapā (noklusējums = jā)."
+
+#: includes/class-wc-vivacom-smart-helpers.php:885
+#: includes/class-wc-vivacom-smart-helpers.php:887
+msgid "Enable Viva.com Smart Checkout"
+msgstr "Iespējot Viva.com Smart Checkout"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1020
+msgid "Enter the value your customers will see on their transactions. Use a recognizable name e.g. the legal entity name or the website address to avoid potential disputes and chargebacks. Can contain only Latin characters, numbers, and space"
+msgstr "Ievadiet vērtību, ko klienti redzēs savos darījumos. Izmantojiet atpazīstamu nosaukumu, piemēram, juridiskās personas nosaukumu vai tīmekļa vietnes adresi, lai izvairītos no iespējamiem strīdiem un atmaksas. Var saturēt tikai latīņu rakstzīmes, skaitļus un atstarpi"
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Full refund was executed with ID: "
+msgstr "Pilna atmaksa tika veikta ar ID: "
+
+#: wc-vivacom-smart.php:313
+msgid "Get support"
+msgstr "Saņemt atbalstu"
+
+#: wc-vivacom-smart.php:313
+msgid "Get support from Viva.com Team"
+msgstr "Saņemiet atbalstu no Viva.com komandas"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+msgstr "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+
+#. Author URI of the plugin
+msgid "https://www.viva.com/"
+msgstr "https://www.viva.com/"
+
+#. translators: Demo Mode
+#: includes/class-wc-vivacom-smart-helpers.php:874
+msgid "If Demo Mode is enabled, please use the credentials you got from %1$s demo.vivapayments.com %2$s."
+msgstr "Ja demonstrācijas režīms ir iespējots, lūdzu, izmantojiet akreditācijas datus, ko saņēmāt no %s demo.vivapayments.com %s."
+
+#: includes/class-wc-vivacom-smart-helpers.php:976
+msgid "Instalments"
+msgstr "Iemaksas"
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:612
+msgid "Invalid currency. Please check credentials or store currency. Allowed currencies are: %s"
+msgstr "Nederīga valūta. Lūdzu, pārbaudiet akreditācijas datus vai saglabājiet valūtu. Atļautās valūtas ir: %s"
+
+#: includes/class-wc-vivacom-smart-helpers.php:916
+msgid "Live Client ID"
+msgstr "Live klienta ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:928
+msgid "Live Client Secret"
+msgstr "Tiešraides klienta noslēpums"
+
+#: includes/class-wc-vivacom-smart-helpers.php:908
+msgid "Live mode credentials"
+msgstr "Tiešraides režīma akreditācijas dati"
+
+#: includes/class-wc-vivacom-smart-helpers.php:982
+msgid "Live Source Code List"
+msgstr "Tiešraides pirmkodu saraksts"
+
+#: includes/class-wc-vivacom-smart.php:509
+msgid "Note that your site must be publicly accessible. Endpoints must be accessible from the web."
+msgstr "Ņemiet vērā, ka jūsu vietnei ir jābūt publiski pieejamai. Galapunktiem jābūt pieejamiem no tīmekļa."
+
+#: includes/class-wc-vivacom-smart-helpers.php:121
+msgid "Order has been paid with Viva.com Smart Checkout, Transaction Id:"
+msgstr "Pasūtījums ir apmaksāts ar Viva.com Smart Checkout, darījuma ID:"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:34
+msgid "Order is currently awaiting payment. After successful payment, we will send you an email confirmation."
+msgstr "Pasūtījums pašlaik gaida apmaksu. Pēc veiksmīgas apmaksas mēs nosūtīsim jums apstiprinājumu pa e-pastu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1002
+msgid "Order status after successful payment."
+msgstr "Pasūtījuma statuss pēc veiksmīgas apmaksas."
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Partial refund was executed with ID: "
+msgstr "Daļēja atmaksa tika veikta ar ID: "
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:267
+msgid "Payment method used for automatic renewal: "
+msgstr "Automātiskai atjaunošanai izmantotais maksājuma veids: "
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Pay Now"
+msgstr "Maksāt tūlīt"
+
+#: includes/class-wc-vivacom-smart-helpers.php:973
+#: includes/class-wc-vivacom-smart.php:121
+msgid "Pay using 30+ methods (cards, digital wallets, local payment methods, online banking, and more)"
+msgstr "Maksājiet, izmantojot 30+ metodes (kartes, digitālos makus, vietējos maksājumu veidus, internetbanku un daudz ko citu)"
+
+#: includes/class-wc-vivacom-smart.php:532
+#: includes/class-wc-vivacom-smart.php:574
+#: includes/class-wc-vivacom-smart.php:583
+#: includes/class-wc-vivacom-smart.php:592
+msgid "Please try to save your settings again and if the source is empty, Viva.com plugin will try to create a new source for your website."
+msgstr "Lūdzu, mēģiniet saglabāt iestatījumus vēlreiz un, ja avots ir tukšs, Viva.com spraudnis mēģinās izveidot jaunu avotu jūsu vietnei."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1030
+msgid "Preauthorized Payments"
+msgstr "Iepriekš autorizēti maksājumi"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1008
+msgid "Processing"
+msgstr "Apstrāde"
+
+#: includes/class-wc-vivacom-smart-helpers.php:984
+#: includes/class-wc-vivacom-smart-helpers.php:991
+msgid "Provides a list with all source codes that are set in your Viva.com banking app."
+msgstr "Nodrošina sarakstu ar visiem avota kodiem, kas ir iestatīti jūsu Viva.com banku programmā."
+
+#: includes/class-wc-vivacom-smart.php:644
+msgid "Sample Bank"
+msgstr "Paraugu banka"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1014
+msgid "Select a color or enter a HEX code."
+msgstr "Atlasiet krāsu vai ievadiet HEX kodu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:875
+msgid "Set the title and description of the payment gateway. Title and description are visible to end users in the checkout page."
+msgstr "Iestatiet maksājumu vārtejas nosaukumu un aprakstu. Nosaukums un apraksts ir redzami lietotājiem norēķinu lapā."
+
+#: wc-vivacom-smart.php:296
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: includes/class-wc-vivacom-smart-helpers.php:896
+msgid "Set Viva.com API credentials"
+msgstr "API akreditācijas datu Viva.com iestatīšana"
+
+#: includes/class-wc-vivacom-smart-helpers.php:949
+msgid "Show advanced settings"
+msgstr "Rādīt papildu iestatījumus"
+
+#: includes/class-wc-vivacom-smart-helpers.php:951
+msgid "Show advanced settings. If this checkbox is unchecked, the plugin will use default settings."
+msgstr "Rādīt papildu iestatījumus. Ja šī izvēles rūtiņa nav atzīmēta, spraudnis izmantos noklusējuma iestatījumus."
+
+#: includes/class-wc-vivacom-smart-helpers.php:996
+msgid "Show logo on checkout page"
+msgstr "Rādīt logotipu izrakstīšanās lapā"
+
+#. Description of the plugin
+msgid "Take secure online payments on your WooCommerce store with Viva.com Smart Checkout."
+msgstr "Veiciet drošus tiešsaistes maksājumus savā WooCommerce veikalā ar Viva.com Smart Checkout."
+
+#: includes/class-wc-vivacom-smart.php:269
+msgid "Thank you for your order, please click the button below to pay."
+msgstr "Paldies par pasūtījumu, lūdzu, noklikšķiniet uz zemāk esošās pogas, lai samaksātu."
+
+#: includes/class-wc-vivacom-smart.php:383
+msgid "Thank you for your order. We are now redirecting you to make your payment."
+msgstr "Paldies par pasūtījumu. Tagad mēs novirzām jūs maksājuma veikšanai."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:249
+msgid "The Order was cancelled"
+msgstr "Pasūtījums tika atcelts"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:213
+#: includes/class-wc-vivacom-smart-endpoints.php:231
+#: includes/class-wc-vivacom-smart-endpoints.php:254
+msgid "There was a problem processing your payment. Please try again"
+msgstr "Radās problēma ar maksājuma apstrādi. Lūdzu, mēģiniet vēlreiz"
+
+#: includes/class-wc-vivacom-smart.php:367
+#: includes/class-wc-vivacom-smart.php:372
+msgid "There was a problem processing your payment. Please try again or use an other payment method."
+msgstr "Radās problēma ar maksājuma apstrādi. Lūdzu, mēģiniet vēlreiz vai izmantojiet citu maksājuma veidu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:241
+#: includes/class-wc-vivacom-smart-helpers.php:315
+#: includes/class-wc-vivacom-smart-helpers.php:389
+msgid "The transaction ID for this order could not be found. Something is wrong!"
+msgstr "Šī pasūtījuma transakcijas ID nevarēja atrast. Kaut kas nav kārtībā!"
+
+#: wc-vivacom-smart.php:107
+#: wc-vivacom-smart.php:118
+msgid "The Viva.com payment gateway requires WooCommerce. Download link %s here."
+msgstr "Viva.com maksājumu vārtejai ir nepieciešams WooCommerce. Lejupielādēt saiti %s šeit."
+
+#: includes/class-wc-vivacom-smart-helpers.php:234
+#: includes/class-wc-vivacom-smart-helpers.php:309
+#: includes/class-wc-vivacom-smart-helpers.php:383
+msgid "The viva order code for this order could not be found. Something is wrong!"
+msgstr "Šī pasūtījuma viva pasūtījuma kodu nevarēja atrast. Kaut kas nav kārtībā!"
+
+#: includes/class-wc-vivacom-smart-helpers.php:972
+msgid "This controls the description that the user sees during checkout."
+msgstr "Tādējādi tiek kontrolēts apraksts, ko lietotājs redz norēķināšanās laikā."
+
+#: includes/class-wc-vivacom-smart-helpers.php:966
+msgid "This controls the title that the user sees during checkout."
+msgstr "Tādējādi tiek kontrolēts nosaukums, ko lietotājs redz norēķināšanās laikā."
+
+#: includes/class-wc-vivacom-smart-helpers.php:964
+msgid "Title"
+msgstr "Nosaukums"
+
+#. translators: credentials
+#: includes/class-wc-vivacom-smart-helpers.php:872
+msgid "To find out how to retrieve your credentials for the payment gateway, please visit the Viva.com Smart Checkout %1$s installation guide %2$s"
+msgstr "Lai uzzinātu, kā izgūt maksājumu vārtejas akreditācijas datus, lūdzu, apmeklējiet Viva.com Smart Checkout %s instalēšanas rokasgrāmatu %s"
+
+#: includes/class-wc-vivacom-smart.php:485
+msgid "To test locally, edit your hosts file and add a domain, for example, \"vivademo.test\"."
+msgstr ""
+"\n"
+"Lai pārbaudītu lokāli, rediģējiet resursdatora failu un pievienojiet domēnu, piemēram, \"vivademo.test\""
+
+#: includes/class-wc-vivacom-smart-endpoints.php:154
+msgid "Transaction failed using Viva.com Smart Checkout"
+msgstr "Darījums neizdevās, izmantojot Viva.com Smart Checkout"
+
+#: includes/class-wc-vivacom-smart.php:645
+msgid "Transaction Reference"
+msgstr "Darījuma atsauce"
+
+#: includes/class-wc-vivacom-smart-helpers.php:270
+#: includes/class-wc-vivacom-smart-helpers.php:343
+#: includes/class-wc-vivacom-smart-helpers.php:417
+msgid "Transaction Response Error: "
+msgstr "Darījuma atbildes kļūda: "
+
+#: includes/class-wc-vivacom-smart-endpoints.php:248
+msgid "Unpaid order cancelled - customer cancelled in smart checkout."
+msgstr "Neapmaksāts pasūtījums atcelts - klients atcelts viedajā kasē."
+
+#: wc-vivacom-smart.php:312
+msgid "View Viva.com Smart Checkout plugin documentation"
+msgstr "Skatīt Viva.com Smart Checkout spraudņa dokumentāciju"
+
+#. Author of the plugin
+msgid "Viva.com"
+msgstr "Viva.com"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:519
+msgid "Viva.com: A new %1$s source code has been created in the Viva.com banking app with code: %2$s and set as default source code."
+msgstr "Viva.com: Viva.com banku lietotnē ir izveidots jauns %s avota kods ar kodu: %s un iestatīts kā noklusējuma avota kods."
+
+#: includes/class-wc-vivacom-smart.php:619
+msgid "Viva.com: Pretty permalinks must be enabled ( not plain text permalinks structure )."
+msgstr "Viva.com: Diezgan pastāvīgās saites ir jāiespējo (nevis vienkārša teksta pastāvīgo saišu struktūra)."
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:131
+msgid "Viva.com Smart Card Token"
+msgstr "Viva.com viedkartes marķieris"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:126
+msgid "Viva.com Smart Card Token Id "
+msgstr "Viva.com viedkartes marķiera ID "
+
+#: includes/class-wc-vivacom-smart.php:120
+msgid "Viva.com | Smart Checkout"
+msgstr "Viva.com | Viedā norēķināšanās"
+
+#: includes/class-wc-vivacom-smart-helpers.php:967
+msgid "Viva.com Smart Checkout"
+msgstr "Viva.com Smart Checkout"
+
+#. Plugin Name of the plugin
+msgid "Viva.com | Smart Checkout for WooCommerce"
+msgstr "Viva.com | Viedā norēķināšanās WooCommerce"
+
+#: includes/class-wc-vivacom-smart-helpers.php:881
+msgid "Viva.com Smart Checkout settings"
+msgstr "Viva.com Smart Checkout iestatījumi"
+
+#: includes/class-wc-vivacom-smart.php:508
+msgid "Viva.com: There was a problem updating hooks for your website."
+msgstr "Viva.com: radās problēma ar vietnes āķu atjaunināšanu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:132
+msgid "Viva.com Transaction status: "
+msgstr "Viva.com Darījuma statuss: "
+
+#: includes/class-wc-vivacom-smart.php:482
+msgid "Viva.com Warning: A valid domain name is needed for Viva.com services to work correctly."
+msgstr "Viva.com Brīdinājums: lai Viva.com pakalpojumi darbotos pareizi, ir nepieciešams derīgs domēna vārds."
+
+#: includes/class-wc-vivacom-smart.php:505
+msgid "Viva.com: You are ready to receive payment notifications. Your hooks have been updated successfully."
+msgstr "Viva.com: Jūs esat gatavs saņemt maksājuma paziņojumus. Jūsu āķi ir veiksmīgi atjaunināti."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:524
+msgid "Viva.com: You changed or updated your %1$s credentials, a %2$s source code for your domain was found with name: %3$s, and set as default source code."
+msgstr "Viva.com: Jūs mainījāt vai atjauninājāt savus %s akreditācijas datus, tika atrasts jūsu domēna %s avota kods ar nosaukumu: %s un iestatīts kā noklusējuma avota kods."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:544
+msgid "Viva.com: Your %1$s source code: %2$s is verified and you are ready to accept payments."
+msgstr "Viva.com: Jūsu %s avota kods: %s ir verificēts, un jūs esat gatavs pieņemt maksājumus."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:230
+#: includes/class-wc-vivacom-smart.php:257
+#: includes/class-wc-vivacom-smart.php:452
+#: includes/class-wc-vivacom-smart.php:493
+msgid "Viva.com: Your %s credentials are NOT valid. Please check your credentials!"
+msgstr "Viva.com: Jūsu %s akreditācijas dati NAV derīgi. Lūdzu, pārbaudiet savus akreditācijas datus!"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:498
+#: includes/class-wc-vivacom-smart.php:529
+msgid "Viva.com: Your %s credentials are valid."
+msgstr "Viva.com: Jūsu %s akreditācijas dati ir derīgi."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:549
+#: includes/class-wc-vivacom-smart.php:556
+#: includes/class-wc-vivacom-smart.php:563
+#: includes/class-wc-vivacom-smart.php:570
+#: includes/class-wc-vivacom-smart.php:579
+#: includes/class-wc-vivacom-smart.php:588
+msgid "Viva.com: Your %s credentials are valid and connection with Viva.com was successful."
+msgstr "Viva.com: Jūsu %s akreditācijas dati ir derīgi un savienojums ar Viva.com ir bijis veiksmīgs."
+
+#: includes/class-wc-vivacom-smart.php:598
+msgid "Viva.com: Your source code is empty. Please save your settings. Viva.com plugin will try to create a new source for your website."
+msgstr "Viva.com: Avota kods ir tukšs. Lūdzu, saglabājiet savus iestatījumus. Viva.com spraudnis mēģinās izveidot jaunu avotu jūsu vietnei."
+
+#: includes/class-wc-vivacom-smart.php:203
+msgid "Void Viva.com Payment"
+msgstr "Anulēt Viva.com maksājumu"
+
+#: includes/class-wc-vivacom-smart-helpers.php:978
+msgid "WARNING: Only available to Greek Viva.com accounts. <br>Example: 90:3,180:6<br>Order total 90 euro -> allow 0 and 3 installments <br>Order total 180 euro -> allow 0, 3 and 6 installments<br>Leave empty in case you do not want to offer installments."
+msgstr "BRĪDINĀJUMS: Pieejams tikai Grieķijas Viva.com kontiem. <br>Piemērs: 90:3,180:6<br>Pasūtījuma kopsumma 90 eiro -> atļaut 0 un 3 iemaksas <br>Pasūtījuma kopsumma 180 eiro -> atļaut 0, 3 un 6 iemaksas<br>Atstājiet tukšu, ja nevēlaties piedāvāt iemaksas."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:551
+msgid "We are in the process of reviewing your %1$s website \"%2$s\"."
+msgstr "Mēs pārskatām jūsu %%1$s vietni \"%%2$s\"."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:157
+msgid "with Viva-CorrelationId: "
+msgstr "ar Viva-CorrelationId: "
+
+#: includes/class-wc-vivacom-smart-helpers.php:299
+#: includes/class-wc-vivacom-smart-helpers.php:373
+msgid "Wrong order status for capturing."
+msgstr "Nepareizs pasūtījuma statuss tveršanai."
+
+#: includes/class-wc-vivacom-smart-helpers.php:303
+#: includes/class-wc-vivacom-smart-helpers.php:377
+msgid "Wrong payment method of order."
+msgstr "Nepareizs pasūtījuma apmaksas veids."
+
+#: includes/class-wc-vivacom-smart-helpers.php:319
+#: includes/class-wc-vivacom-smart-helpers.php:393
+msgid "Wrong transaction type!"
+msgstr "Nepareizs darījuma veids!"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:165
+msgid "You are not allowed to change the Card Token."
+msgstr "Jums nav atļauts mainīt kartes žetonu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:228
+msgid "You cannot edit an already refunded or canceled order."
+msgstr "Jūs nevarat rediģēt jau atmaksātu vai atceltu pasūtījumu."
+
+#: includes/class-wc-vivacom-smart.php:647
+msgid "YourCompanyName"
+msgstr "Jūsu uzņēmuma nosaukums"
+
+#. translators: domain
+#: includes/class-wc-vivacom-smart.php:484
+msgid "Your domain, \"%s\", does not seem valid."
+msgstr "Jūsu domēns \"%%s\" nešķiet derīgs."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1003
+msgid "Your WooCommerce will be updated to this status after successful payment on Viva.com (default = completed)."
+msgstr "Jūsu WooCommerce tiks atjaunināts uz šo statusu pēc veiksmīga maksājuma Viva.com (noklusējums = pabeigts)."
+
+#: includes/class-wc-vivacom-smart.php:510
+msgid "You will be not able to receive payment notifications and your orders will not be updated."
+msgstr "Jūs nevarēsiet saņemt maksājuma paziņojumus un jūsu pasūtījumi netiks atjaunināti."

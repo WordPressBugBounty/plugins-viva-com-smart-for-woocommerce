@@ -1,527 +1,567 @@
-# Copyright (C) 2025 Viva.com
+# Copyright (C) 2026 Viva.com
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Viva.com | Smart Checkout for WooCommerce 1.0.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Viva-Wallet-Smart-Checkout-for-WooCommerce\n"
+"Project-Id-Version: Viva.com | Smart Checkout for WooCommerce 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/viva-com-smart-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-03T13:11:06+00:00\n"
+"POT-Creation-Date: 2026-09-11T12:20:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: viva-com-smart-for-woocommerce\n"
 
 #. Plugin Name of the plugin
+#: wc-vivacom-smart.php
 msgid "Viva.com | Smart Checkout for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: wc-vivacom-smart.php
 msgid "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
 msgstr ""
 
 #. Description of the plugin
+#: wc-vivacom-smart.php
 msgid "Take secure online payments on your WooCommerce store with Viva.com Smart Checkout."
 msgstr ""
 
 #. Author of the plugin
+#: wc-vivacom-smart.php
 msgid "Viva.com"
 msgstr ""
 
 #. Author URI of the plugin
+#: wc-vivacom-smart.php
 msgid "https://www.viva.com/"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:34
+#: includes/class-wc-vivacom-smart-endpoints.php:40
 msgid "Order is currently awaiting payment. After successful payment, we will send you an email confirmation."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:154
+#: includes/class-wc-vivacom-smart-endpoints.php:138
 msgid "Transaction failed using Viva.com Smart Checkout"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:157
+#: includes/class-wc-vivacom-smart-endpoints.php:141
 msgid "with Viva-CorrelationId: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:213
-#: includes/class-wc-vivacom-smart-endpoints.php:231
-#: includes/class-wc-vivacom-smart-endpoints.php:254
+#: includes/class-wc-vivacom-smart-endpoints.php:227
+#: includes/class-wc-vivacom-smart-endpoints.php:239
+#: includes/class-wc-vivacom-smart-endpoints.php:262
 msgid "There was a problem processing your payment. Please try again"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:248
+#: includes/class-wc-vivacom-smart-endpoints.php:256
 msgid "Unpaid order cancelled - customer cancelled in smart checkout."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-endpoints.php:249
+#: includes/class-wc-vivacom-smart-endpoints.php:257
 msgid "The Order was cancelled"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:121
+#: includes/class-wc-vivacom-smart-helpers.php:149
 msgid "Order has been paid with Viva.com Smart Checkout, Transaction Id:"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:132
+#: includes/class-wc-vivacom-smart-helpers.php:160
 msgid "Viva.com Transaction status: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:228
+#: includes/class-wc-vivacom-smart-helpers.php:256
 msgid "You cannot edit an already refunded or canceled order."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:234
-#: includes/class-wc-vivacom-smart-helpers.php:309
-#: includes/class-wc-vivacom-smart-helpers.php:383
+#: includes/class-wc-vivacom-smart-helpers.php:262
+#: includes/class-wc-vivacom-smart-helpers.php:350
+#: includes/class-wc-vivacom-smart-helpers.php:448
 msgid "The viva order code for this order could not be found. Something is wrong!"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:241
-#: includes/class-wc-vivacom-smart-helpers.php:315
-#: includes/class-wc-vivacom-smart-helpers.php:389
+#: includes/class-wc-vivacom-smart-helpers.php:269
+#: includes/class-wc-vivacom-smart-helpers.php:358
+#: includes/class-wc-vivacom-smart-helpers.php:457
 msgid "The transaction ID for this order could not be found. Something is wrong!"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:265
+#: includes/class-wc-vivacom-smart-helpers.php:300
 msgid "Full refund was executed with ID: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:265
+#: includes/class-wc-vivacom-smart-helpers.php:300
 msgid "Partial refund was executed with ID: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:270
-#: includes/class-wc-vivacom-smart-helpers.php:343
-#: includes/class-wc-vivacom-smart-helpers.php:417
+#: includes/class-wc-vivacom-smart-helpers.php:305
+#: includes/class-wc-vivacom-smart-helpers.php:402
+#: includes/class-wc-vivacom-smart-helpers.php:502
 msgid "Transaction Response Error: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:299
-#: includes/class-wc-vivacom-smart-helpers.php:373
+#: includes/class-wc-vivacom-smart-helpers.php:334
+#: includes/class-wc-vivacom-smart-helpers.php:432
 msgid "Wrong order status for capturing."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:303
-#: includes/class-wc-vivacom-smart-helpers.php:377
+#: includes/class-wc-vivacom-smart-helpers.php:341
+#: includes/class-wc-vivacom-smart-helpers.php:439
 msgid "Wrong payment method of order."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:319
-#: includes/class-wc-vivacom-smart-helpers.php:393
+#: includes/class-wc-vivacom-smart-helpers.php:365
+#: includes/class-wc-vivacom-smart-helpers.php:464
 msgid "Wrong transaction type!"
 msgstr ""
 
 #. translators: credentials
-#: includes/class-wc-vivacom-smart-helpers.php:872
+#: includes/class-wc-vivacom-smart-helpers.php:963
+#, php-format
 msgid "To find out how to retrieve your credentials for the payment gateway, please visit the Viva.com Smart Checkout %1$s installation guide %2$s"
 msgstr ""
 
 #. translators: Demo Mode
-#: includes/class-wc-vivacom-smart-helpers.php:874
+#: includes/class-wc-vivacom-smart-helpers.php:965
+#, php-format
 msgid "If Demo Mode is enabled, please use the credentials you got from %1$s demo.vivapayments.com %2$s."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:875
+#: includes/class-wc-vivacom-smart-helpers.php:966
 msgid "Set the title and description of the payment gateway. Title and description are visible to end users in the checkout page."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:881
+#: includes/class-wc-vivacom-smart-helpers.php:972
 msgid "Viva.com Smart Checkout settings"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:885
-#: includes/class-wc-vivacom-smart-helpers.php:887
+#: includes/class-wc-vivacom-smart-helpers.php:976
+#: includes/class-wc-vivacom-smart-helpers.php:978
 msgid "Enable Viva.com Smart Checkout"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:896
+#: includes/class-wc-vivacom-smart-helpers.php:987
 msgid "Set Viva.com API credentials"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:901
+#: includes/class-wc-vivacom-smart-helpers.php:992
 msgid "Demo mode"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:903
+#: includes/class-wc-vivacom-smart-helpers.php:994
 msgid "Enable demo mode"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:908
+#: includes/class-wc-vivacom-smart-helpers.php:999
 msgid "Live mode credentials"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:912
+#: includes/class-wc-vivacom-smart-helpers.php:1003
 msgid "Demo mode credentials"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:916
+#: includes/class-wc-vivacom-smart-helpers.php:1007
 msgid "Live Client ID"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:918
+#: includes/class-wc-vivacom-smart-helpers.php:1009
 msgid "Client ID provided by Viva.com."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:922
+#: includes/class-wc-vivacom-smart-helpers.php:1013
 msgid "Demo Client ID"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:924
+#: includes/class-wc-vivacom-smart-helpers.php:1015
 msgid "Client ID provided by Viva.com. "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:928
+#: includes/class-wc-vivacom-smart-helpers.php:1019
 msgid "Live Client Secret"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:930
-#: includes/class-wc-vivacom-smart-helpers.php:936
+#: includes/class-wc-vivacom-smart-helpers.php:1021
+#: includes/class-wc-vivacom-smart-helpers.php:1027
 msgid "Client Secret provided by Viva.com."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:934
+#: includes/class-wc-vivacom-smart-helpers.php:1025
 msgid "Demo Client Secret"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:945
+#: includes/class-wc-vivacom-smart-helpers.php:1036
 msgid "Advanced settings"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:949
+#: includes/class-wc-vivacom-smart-helpers.php:1040
 msgid "Show advanced settings"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:951
+#: includes/class-wc-vivacom-smart-helpers.php:1042
 msgid "Show advanced settings. If this checkbox is unchecked, the plugin will use default settings."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:964
+#: includes/class-wc-vivacom-smart-helpers.php:1055
 msgid "Title"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:966
+#: includes/class-wc-vivacom-smart-helpers.php:1057
 msgid "This controls the title that the user sees during checkout."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:967
+#: includes/class-wc-vivacom-smart-helpers.php:1058
 msgid "Viva.com Smart Checkout"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:970
+#: includes/class-wc-vivacom-smart-helpers.php:1061
 msgid "Description"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:972
+#: includes/class-wc-vivacom-smart-helpers.php:1063
 msgid "This controls the description that the user sees during checkout."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:973
-#: includes/class-wc-vivacom-smart.php:121
+#: includes/class-wc-vivacom-smart-helpers.php:1064
+#: includes/class-wc-vivacom-smart.php:130
 msgid "Pay using 30+ methods (cards, digital wallets, local payment methods, online banking, and more)"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:976
+#: includes/class-wc-vivacom-smart-helpers.php:1067
 msgid "Instalments"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:978
+#: includes/class-wc-vivacom-smart-helpers.php:1069
 msgid "WARNING: Only available to Greek Viva.com accounts. <br>Example: 90:3,180:6<br>Order total 90 euro -> allow 0 and 3 installments <br>Order total 180 euro -> allow 0, 3 and 6 installments<br>Leave empty in case you do not want to offer installments."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:982
+#: includes/class-wc-vivacom-smart-helpers.php:1073
 msgid "Live Source Code List"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:984
-#: includes/class-wc-vivacom-smart-helpers.php:991
+#: includes/class-wc-vivacom-smart-helpers.php:1075
+#: includes/class-wc-vivacom-smart-helpers.php:1082
 msgid "Provides a list with all source codes that are set in your Viva.com banking app."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:989
+#: includes/class-wc-vivacom-smart-helpers.php:1080
 msgid "Demo Source Code List"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:996
+#: includes/class-wc-vivacom-smart-helpers.php:1087
 msgid "Show logo on checkout page"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:998
+#: includes/class-wc-vivacom-smart-helpers.php:1089
 msgid "Enable Viva.com logo on checkout page (default = yes)."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1002
+#: includes/class-wc-vivacom-smart-helpers.php:1093
 msgid "Order status after successful payment."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1003
+#: includes/class-wc-vivacom-smart-helpers.php:1094
 msgid "Your WooCommerce will be updated to this status after successful payment on Viva.com (default = completed)."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1007
+#: includes/class-wc-vivacom-smart-helpers.php:1098
 msgid "Completed"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1008
+#: includes/class-wc-vivacom-smart-helpers.php:1099
 msgid "Processing"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1012
+#: includes/class-wc-vivacom-smart-helpers.php:1103
 msgid "Brand color"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1014
+#: includes/class-wc-vivacom-smart-helpers.php:1105
 msgid "Select a color or enter a HEX code."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1018
+#: includes/class-wc-vivacom-smart-helpers.php:1109
 msgid "Customer bank statement suffix"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1020
+#: includes/class-wc-vivacom-smart-helpers.php:1111
 msgid "Enter the value your customers will see on their transactions. Use a recognizable name e.g. the legal entity name or the website address to avoid potential disputes and chargebacks. Can contain only Latin characters, numbers, and space"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1030
+#: includes/class-wc-vivacom-smart-helpers.php:1121
 msgid "Preauthorized Payments"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-helpers.php:1032
+#: includes/class-wc-vivacom-smart-helpers.php:1123
 msgid "Enable Preauthorized Payments"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-subscriptions.php:126
+#: includes/class-wc-vivacom-smart-subscriptions.php:127
 msgid "Viva.com Smart Card Token Id "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-subscriptions.php:131
+#: includes/class-wc-vivacom-smart-subscriptions.php:132
 msgid "Viva.com Smart Card Token"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-subscriptions.php:165
+#: includes/class-wc-vivacom-smart-subscriptions.php:166
 msgid "You are not allowed to change the Card Token."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart-subscriptions.php:267
+#: includes/class-wc-vivacom-smart-subscriptions.php:270
 msgid "Payment method used for automatic renewal: "
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:120
+#: includes/class-wc-vivacom-smart.php:129
 msgid "Viva.com | Smart Checkout"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:202
-msgid "Capture Viva.com Payment"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:203
-msgid "Void Viva.com Payment"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:223
-msgid "Capture prauthorized payment failed: %s"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:225
-msgid "Capture prauthorized payment successfull: Tranaction Id: %s"
-msgstr ""
-
-#. translators: error_message
-#: includes/class-wc-vivacom-smart.php:230
-#: includes/class-wc-vivacom-smart.php:257
-#: includes/class-wc-vivacom-smart.php:452
-#: includes/class-wc-vivacom-smart.php:493
-msgid "Viva.com: Your %s credentials are NOT valid. Please check your credentials!"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:250
-msgid "Cancel of prauthorized payment failed: %s"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:252
-msgid "Cancel of prauthorized payment successfull: Tranaction Id: %s"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:269
+#: includes/class-wc-vivacom-smart.php:205
 msgid "Thank you for your order, please click the button below to pay."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:367
-#: includes/class-wc-vivacom-smart.php:372
+#: includes/class-wc-vivacom-smart.php:305
+#: includes/class-wc-vivacom-smart.php:310
 msgid "There was a problem processing your payment. Please try again or use an other payment method."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:383
-msgid "Thank you for your order. We are now redirecting you to make your payment."
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:406
+#: includes/class-wc-vivacom-smart.php:321
 msgid "Pay Now"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:406
+#: includes/class-wc-vivacom-smart.php:321
 msgid "Cancel"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:482
+#: includes/class-wc-vivacom-smart.php:338
+msgid "Thank you for your order. We are now redirecting you to make your payment."
+msgstr ""
+
+#. translators: error_message
+#. translators: %s: environment name (LIVE or DEMO)
+#: includes/class-wc-vivacom-smart.php:385
+#: includes/class-wc-vivacom-smart.php:525
+#: wc-vivacom-smart.php:263
+#: wc-vivacom-smart.php:293
+#, php-format
+msgid "Viva.com: Your %s credentials are NOT valid. Please check your credentials!"
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:428
+msgid "Sample Bank"
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:429
+msgid "Transaction Reference"
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:430
+msgid "Amount"
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:431
+msgid "YourCompanyName"
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:433
+#: includes/class-wc-vivacom-smart.php:804
+msgid "Invalid instalments format. Use amount:instalments pairs separated by commas, e.g. 90:3,180:6."
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:485
+msgid "Viva.com: To ensure webhooks work properly, you must whitelist(allow) Viva domains and IP addresses."
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:489
+msgid "Visit the documentation."
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:513
 msgid "Viva.com Warning: A valid domain name is needed for Viva.com services to work correctly."
 msgstr ""
 
 #. translators: domain
-#: includes/class-wc-vivacom-smart.php:484
+#: includes/class-wc-vivacom-smart.php:515
+#, php-format
 msgid "Your domain, \"%s\", does not seem valid."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:485
+#: includes/class-wc-vivacom-smart.php:516
 msgid "To test locally, edit your hosts file and add a domain, for example, \"vivademo.test\"."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:498
 #: includes/class-wc-vivacom-smart.php:529
+#, php-format
 msgid "Viva.com: Your %s credentials are valid."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:505
+#: includes/class-wc-vivacom-smart.php:536
 msgid "Viva.com: You are ready to receive payment notifications. Your hooks have been updated successfully."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:508
-msgid "Viva.com: There was a problem updating hooks for your website."
+#: includes/class-wc-vivacom-smart.php:538
+msgid "Viva.com: Maximum Webhook per Event Type Limit Reached."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:509
-msgid "Note that your site must be publicly accessible. Endpoints must be accessible from the web."
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:510
+#: includes/class-wc-vivacom-smart.php:539
+#: includes/class-wc-vivacom-smart.php:544
 msgid "You will be not able to receive payment notifications and your orders will not be updated."
 msgstr ""
 
-#. translators: info_message
-#: includes/class-wc-vivacom-smart.php:519
-msgid "Viva.com: A new %1$s source code has been created in the Viva.com banking app with code: %2$s and set as default source code."
+#: includes/class-wc-vivacom-smart.php:542
+msgid "Viva.com: There was a problem updating hooks for your website."
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:543
+msgid "Note that your site must be publicly accessible. Endpoints must be accessible from the web."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:524
-msgid "Viva.com: You changed or updated your %1$s credentials, a %2$s source code for your domain was found with name: %3$s, and set as default source code."
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:530
-msgid "But there was an error trying to create a new source."
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:531
-#: includes/class-wc-vivacom-smart.php:573
-#: includes/class-wc-vivacom-smart.php:582
-#: includes/class-wc-vivacom-smart.php:591
-msgid "Check the sources selection box in advanced settings to see your available source codes and set one from there if available."
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:532
-#: includes/class-wc-vivacom-smart.php:574
-#: includes/class-wc-vivacom-smart.php:583
-#: includes/class-wc-vivacom-smart.php:592
-msgid "Please try to save your settings again and if the source is empty, Viva.com plugin will try to create a new source for your website."
-msgstr ""
-
-#. translators: info_message
-#: includes/class-wc-vivacom-smart.php:544
+#: includes/class-wc-vivacom-smart.php:555
+#, php-format
 msgid "Viva.com: Your %1$s source code: %2$s is verified and you are ready to accept payments."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:549
-#: includes/class-wc-vivacom-smart.php:556
-#: includes/class-wc-vivacom-smart.php:563
-#: includes/class-wc-vivacom-smart.php:570
-#: includes/class-wc-vivacom-smart.php:579
-#: includes/class-wc-vivacom-smart.php:588
+#: includes/class-wc-vivacom-smart.php:559
+#: includes/class-wc-vivacom-smart.php:566
+#: includes/class-wc-vivacom-smart.php:573
+#: includes/class-wc-vivacom-smart.php:580
+#: includes/class-wc-vivacom-smart.php:589
+#: includes/class-wc-vivacom-smart.php:598
+#, php-format
 msgid "Viva.com: Your %s credentials are valid and connection with Viva.com was successful."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:551
+#: includes/class-wc-vivacom-smart.php:561
+#, php-format
 msgid "We are in the process of reviewing your %1$s website \"%2$s\"."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:558
+#: includes/class-wc-vivacom-smart.php:568
+#, php-format
 msgid "But your %1$s source code: %2$s has been BLOCKED. Please check your latest email from Viva.com Support for more info."
 msgstr ""
 
 #. translators: info_message
-#: includes/class-wc-vivacom-smart.php:565
+#: includes/class-wc-vivacom-smart.php:575
+#, php-format
 msgid "But your %1$s source code: %2$s is NOT active."
 msgstr ""
 
 #. translators: error_message
-#: includes/class-wc-vivacom-smart.php:572
+#: includes/class-wc-vivacom-smart.php:582
+#, php-format
 msgid "But your %1$s source code: %2$s is not valid for this domain."
 msgstr ""
 
+#: includes/class-wc-vivacom-smart.php:583
+#: includes/class-wc-vivacom-smart.php:592
+#: includes/class-wc-vivacom-smart.php:601
+msgid "Check the sources selection box in advanced settings to see your available source codes and set one from there if available."
+msgstr ""
+
+#: includes/class-wc-vivacom-smart.php:584
+#: includes/class-wc-vivacom-smart.php:593
+#: includes/class-wc-vivacom-smart.php:602
+msgid "Please try to save your settings again and if the source is empty, Viva.com plugin will try to create a new source for your website."
+msgstr ""
+
 #. translators: error_message
-#: includes/class-wc-vivacom-smart.php:581
+#: includes/class-wc-vivacom-smart.php:591
+#, php-format
 msgid "But your %1$s source code: %2$s has wrong redirection urls."
 msgstr ""
 
 #. translators: error_message
-#: includes/class-wc-vivacom-smart.php:590
+#: includes/class-wc-vivacom-smart.php:600
+#, php-format
 msgid "But your %1$s source code: %2$s is not found."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:598
+#: includes/class-wc-vivacom-smart.php:607
 msgid "Viva.com: Your source code is empty. Please save your settings. Viva.com plugin will try to create a new source for your website."
 msgstr ""
 
 #. translators: error_message
-#: includes/class-wc-vivacom-smart.php:612
+#: includes/class-wc-vivacom-smart.php:621
+#, php-format
 msgid "Invalid currency. Please check credentials or store currency. Allowed currencies are: %s"
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:619
+#: includes/class-wc-vivacom-smart.php:627
 msgid "Viva.com: Pretty permalinks must be enabled ( not plain text permalinks structure )."
 msgstr ""
 
-#: includes/class-wc-vivacom-smart.php:644
-msgid "Sample Bank"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:645
-msgid "Transaction Reference"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:646
-msgid "Amount"
-msgstr ""
-
-#: includes/class-wc-vivacom-smart.php:647
-msgid "YourCompanyName"
-msgstr ""
-
-#: wc-vivacom-smart.php:107
-#: wc-vivacom-smart.php:118
+#. translators: %s: WooCommerce download link
+#: wc-vivacom-smart.php:109
+#, php-format
 msgid "The Viva.com payment gateway requires WooCommerce. Download link %s here."
 msgstr ""
 
-#: wc-vivacom-smart.php:296
+#. translators: 1: required WooCommerce version, 2: currently installed WooCommerce version, 3: link to plugins update page
+#: wc-vivacom-smart.php:121
+#, php-format
+msgid "Viva.com requires WooCommerce %1$s or higher. You are running WooCommerce %2$s. Please %3$s."
+msgstr ""
+
+#: wc-vivacom-smart.php:127
+msgid "update WooCommerce"
+msgstr ""
+
+#. translators: %s: error message
+#: wc-vivacom-smart.php:254
+#, php-format
+msgid "Capture pre-authorized payment failed: %s"
+msgstr ""
+
+#. translators: %s: transaction ID
+#: wc-vivacom-smart.php:257
+#, php-format
+msgid "Capture pre-authorized payment successful. Transaction ID: %s"
+msgstr ""
+
+#. translators: %s: error message
+#: wc-vivacom-smart.php:284
+#, php-format
+msgid "Cancel of pre-authorized payment failed: %s"
+msgstr ""
+
+#. translators: %s: transaction ID
+#: wc-vivacom-smart.php:287
+#, php-format
+msgid "Cancel of pre-authorized payment successful. Transaction ID: %s"
+msgstr ""
+
+#: wc-vivacom-smart.php:367
 msgid "Settings"
 msgstr ""
 
-#: wc-vivacom-smart.php:312
+#: wc-vivacom-smart.php:383
 msgid "View Viva.com Smart Checkout plugin documentation"
 msgstr ""
 
-#: wc-vivacom-smart.php:312
+#: wc-vivacom-smart.php:383
 msgid "Documentation"
 msgstr ""
 
-#: wc-vivacom-smart.php:313
+#: wc-vivacom-smart.php:384
 msgid "Get support from Viva.com Team"
 msgstr ""
 
-#: wc-vivacom-smart.php:313
+#: wc-vivacom-smart.php:384
 msgid "Get support"
+msgstr ""
+
+#: wc-vivacom-smart.php:399
+msgid "Capture Viva.com Payment"
+msgstr ""
+
+#: wc-vivacom-smart.php:400
+msgid "Void Viva.com Payment"
 msgstr ""

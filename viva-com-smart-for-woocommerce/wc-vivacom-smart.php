@@ -6,12 +6,12 @@
  *  Description: Take secure online payments on your WooCommerce store with Viva.com Smart Checkout.
  *  Author: Viva.com
  *  Author URI: https://www.viva.com/
- *  Version: 1.1.1
+ *  Version: 1.2.0
  *  Requires Plugins: woocommerce
  *  Requires at least: 6.5
- *  Tested up to: 7.0
+ *  Tested up to: 7.1
  *  WC requires at least: 9.2
- *  WC tested up to: 10.9
+ *  WC tested up to: 11.1
  *  Text Domain: viva-com-smart-for-woocommerce
  *  License: GPLv2
  *  Domain Path: /languages
@@ -136,7 +136,7 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		private function define_constants(): void {
-			define( 'WC_VIVA_COM_SMART_VERSION', '1.1.1' );
+			define( 'WC_VIVA_COM_SMART_VERSION', '1.2.0' );
 			define( 'WC_VIVA_COM_SMART_MIN_PHP_VERSION', '7.4.0' );
 			define( 'WC_VIVA_COM_SMART_MIN_WOO_VERSION', '9.2.0' );
 			define( 'WC_VIVA_COM_SMART_MAIN_FILE', __FILE__ );
@@ -407,22 +407,41 @@ if ( ! class_exists( 'WC_Vivacom_Smart' ) ) {
 		 * @return void
 		 */
 		public function setup_locale(): void {
-			add_filter( 'plugin_locale', array( $this, 'woocommerce_vivacom_smart_fix_locale' ), 99, 2 );
+			add_filter( 'load_textdomain_mofile', array( $this, 'woocommerce_vivacom_smart_fix_locale' ), 99, 2 );
 			load_plugin_textdomain( 'viva-com-smart-for-woocommerce', false, plugin_basename( __DIR__ ) . '/languages' );
 		}
 
 		/**
-		 * Vivacom_fix_locale
+		 * Points WordPress at this plugin's language-only translation file.
 		 *
-		 * @param string $locale locale.
+		 * The bundled .mo files are named per language ( de, fr, pt ) instead of per
+		 * locale ( de_DE, fr_FR, pt_PT ). Since WordPress 6.7 translations are resolved
+		 * just-in-time from determine_locale() and load_plugin_textdomain() no longer
+		 * applies the 'plugin_locale' filter, so the locale can no longer be shortened
+		 * before the file name is built - the file name itself has to be corrected here.
+		 *
+		 * @param string $mofile Path to the translation file WordPress is about to load.
 		 * @param string $domain domain.
 		 * @return string
 		 */
-		public function woocommerce_vivacom_smart_fix_locale( $locale, $domain ) {
-			if ( 'viva-com-smart-for-woocommerce' === $domain ) {
-				$locale = substr( $locale, 0, 2 );
+		public function woocommerce_vivacom_smart_fix_locale( $mofile, $domain ) {
+			if ( 'viva-com-smart-for-woocommerce' !== $domain ) {
+				return $mofile;
 			}
-			return $locale;
+
+			// An exact match for the full locale wins - this covers wp.org language packs and files such as -nb_NO.mo.
+			if ( file_exists( $mofile ) || file_exists( substr_replace( $mofile, '.l10n.php', - strlen( '.mo' ) ) ) ) {
+				return $mofile;
+			}
+
+			$locale = substr( basename( $mofile, '.mo' ), strlen( $domain ) + 1 );
+			if ( strlen( $locale ) <= 2 ) {
+				return $mofile;
+			}
+
+			$fallback = dirname( $mofile ) . '/' . $domain . '-' . substr( $locale, 0, 2 ) . '.mo';
+
+			return file_exists( $fallback ) ? $fallback : $mofile;
 		}
 
 		/**

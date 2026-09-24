@@ -1,0 +1,528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-17T13:18:45+00:00\n"
+"PO-Revision-Date: 2026-07-17T13:18:45+00:00\n"
+"Language: sk\n"
+"Plural-Forms: nplurals = 3; plural = (n === 1 ? 0 : (n >= 2 && n <= 4) ? 1 : 2)\n"
+"X-Generator: Tolgee\n"
+
+#: includes/class-wc-vivacom-smart-helpers.php:945
+msgid "Advanced settings"
+msgstr "Pokročilé nastavenia"
+
+#: includes/class-wc-vivacom-smart.php:646
+msgid "Amount"
+msgstr "Množstvo"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1012
+msgid "Brand color"
+msgstr "Značka"
+
+#: includes/class-wc-vivacom-smart.php:530
+msgid "But there was an error trying to create a new source."
+msgstr "Ale pri pokuse vytvoriť nový zdroj bola chyba."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:558
+msgid "But your %1$s source code: %2$s has been BLOCKED. Please check your latest email from Viva.com Support for more info."
+msgstr "Ale váš zdrojový kód %s: %s bol ZABLOKOVANÝ. Pre viac informácií si prosím skontrolujte svoj najnovší e-mail od Viva.com podpory."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:581
+msgid "But your %1$s source code: %2$s has wrong redirection urls."
+msgstr "Ale váš zdrojový kód %s: %s má nesprávne presmerovacie URL."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:565
+msgid "But your %1$s source code: %2$s is NOT active."
+msgstr "Ale váš zdrojový kód %s: %s NIE JE aktívny."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:590
+msgid "But your %1$s source code: %2$s is not found."
+msgstr "Ale váš zdrojový kód %s: %s nie je nájdený."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:572
+msgid "But your %1$s source code: %2$s is not valid for this domain."
+msgstr "Ale váš zdrojový kód %s: %s nie je platný pre túto doménu."
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: includes/class-wc-vivacom-smart.php:250
+msgid "Cancel of prauthorized payment failed: %s"
+msgstr "Zrušenie autorizovanej platby zlyhalo: %s"
+
+#: includes/class-wc-vivacom-smart.php:252
+msgid "Cancel of prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Zrušenie autorizovanej platby úspešné: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:223
+msgid "Capture prauthorized payment failed: %s"
+msgstr "Zachytenie autorizovanej platby zlyhalo: %s"
+
+#: includes/class-wc-vivacom-smart.php:225
+msgid "Capture prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Zachytenie autorizovanej platby úspešné: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:202
+msgid "Capture Viva.com Payment"
+msgstr "Zachytenie Viva.com platba"
+
+#: includes/class-wc-vivacom-smart.php:531
+#: includes/class-wc-vivacom-smart.php:573
+#: includes/class-wc-vivacom-smart.php:582
+#: includes/class-wc-vivacom-smart.php:591
+msgid "Check the sources selection box in advanced settings to see your available source codes and set one from there if available."
+msgstr "V pokročilých nastaveniach si zaškrtni políčko na výber zdrojov, aby si videl dostupné zdrojové kódy, a odtiaľ si nastav jeden, ak je k dispozícii."
+
+#: includes/class-wc-vivacom-smart-helpers.php:918
+msgid "Client ID provided by Viva.com."
+msgstr "ID klienta poskytla Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:924
+msgid "Client ID provided by Viva.com. "
+msgstr "ID klienta poskytla Viva.com. "
+
+#: includes/class-wc-vivacom-smart-helpers.php:930
+#: includes/class-wc-vivacom-smart-helpers.php:936
+msgid "Client Secret provided by Viva.com."
+msgstr "Tajomstvo klienta poskytla Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1007
+msgid "Completed"
+msgstr "Dokončené"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1018
+msgid "Customer bank statement suffix"
+msgstr "Prípona bankového výpisu zákazníka"
+
+#: includes/class-wc-vivacom-smart-helpers.php:922
+msgid "Demo Client ID"
+msgstr "Demo Client ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:934
+msgid "Demo Client Secret"
+msgstr "Demo klientské tajomstvo"
+
+#: includes/class-wc-vivacom-smart-helpers.php:901
+msgid "Demo mode"
+msgstr "Demo režim"
+
+#: includes/class-wc-vivacom-smart-helpers.php:912
+msgid "Demo mode credentials"
+msgstr "Prihlasovacie údaje do demo režimu"
+
+#: includes/class-wc-vivacom-smart-helpers.php:989
+msgid "Demo Source Code List"
+msgstr "Demo zoznam zdrojového kódu"
+
+#: includes/class-wc-vivacom-smart-helpers.php:970
+msgid "Description"
+msgstr "Popis"
+
+#: wc-vivacom-smart.php:312
+msgid "Documentation"
+msgstr "Dokumentácia"
+
+#: includes/class-wc-vivacom-smart-helpers.php:903
+msgid "Enable demo mode"
+msgstr "Zapnúť demo režim"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1032
+msgid "Enable Preauthorized Payments"
+msgstr "Povoliť predautorizované platby"
+
+#: includes/class-wc-vivacom-smart-helpers.php:998
+msgid "Enable Viva.com logo on checkout page (default = yes)."
+msgstr "Povolte Viva.com logo na stránke pokladne (predvolené = áno)."
+
+#: includes/class-wc-vivacom-smart-helpers.php:885
+#: includes/class-wc-vivacom-smart-helpers.php:887
+msgid "Enable Viva.com Smart Checkout"
+msgstr "Zapnúť Viva.com Smart Checkout"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1020
+msgid "Enter the value your customers will see on their transactions. Use a recognizable name e.g. the legal entity name or the website address to avoid potential disputes and chargebacks. Can contain only Latin characters, numbers, and space"
+msgstr "Zadajte hodnotu, ktorú vaši zákazníci uvidia vo svojich transakciách. Používajte rozpoznateľné meno, napríklad názov právnickej osoby alebo adresu webovej stránky, aby ste sa vyhli možným sporom a vráteniu poplatkov. Môže obsahovať iba latinské znaky, čísla a medzery"
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Full refund was executed with ID: "
+msgstr "Plná refundácia bola vykonaná s dokladom totožnosti: "
+
+#: wc-vivacom-smart.php:313
+msgid "Get support"
+msgstr "Získajte podporu"
+
+#: wc-vivacom-smart.php:313
+msgid "Get support from Viva.com Team"
+msgstr "Získajte podporu od Viva.com tímu"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+msgstr "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+
+#. Author URI of the plugin
+msgid "https://www.viva.com/"
+msgstr "https://www.viva.com/"
+
+#. translators: Demo Mode
+#: includes/class-wc-vivacom-smart-helpers.php:874
+msgid "If Demo Mode is enabled, please use the credentials you got from %1$s demo.vivapayments.com %2$s."
+msgstr "Ak je Demo režim zapnutý, použite prihlasovacie údaje, ktoré ste získali z %s demo.vivapayments.com %s."
+
+#: includes/class-wc-vivacom-smart-helpers.php:976
+msgid "Instalments"
+msgstr "Časti"
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:612
+msgid "Invalid currency. Please check credentials or store currency. Allowed currencies are: %s"
+msgstr "Neplatná mena. Prosím, skontrolujte si prihlasovacie údaje alebo uložte peniaze. Povolené meny sú: %s"
+
+#: includes/class-wc-vivacom-smart-helpers.php:916
+msgid "Live Client ID"
+msgstr "Live Client ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:928
+msgid "Live Client Secret"
+msgstr "Živé tajomstvo klienta"
+
+#: includes/class-wc-vivacom-smart-helpers.php:908
+msgid "Live mode credentials"
+msgstr "Prihlasovacie údaje v režime Live"
+
+#: includes/class-wc-vivacom-smart-helpers.php:982
+msgid "Live Source Code List"
+msgstr "Zoznam živého zdrojového kódu"
+
+#: includes/class-wc-vivacom-smart.php:509
+msgid "Note that your site must be publicly accessible. Endpoints must be accessible from the web."
+msgstr "Upozorňujeme, že vaša stránka musí byť verejne prístupná. Koncové body musia byť prístupné z webu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:121
+msgid "Order has been paid with Viva.com Smart Checkout, Transaction Id:"
+msgstr "Objednávka bola zaplatená pomocou Viva.com Smart Checkout, ID transakcie:"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:34
+msgid "Order is currently awaiting payment. After successful payment, we will send you an email confirmation."
+msgstr "Objednávka momentálne čaká na zaplatenie. Po úspešnej platbe vám pošleme potvrdenie e-mailom."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1002
+msgid "Order status after successful payment."
+msgstr "Stav objednávky po úspešnej platbe."
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Partial refund was executed with ID: "
+msgstr "Čiastočné vrátenie peňazí bolo vykonané s dokladom totožnosti: "
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:267
+msgid "Payment method used for automatic renewal: "
+msgstr "Spôsob platby používaný na automatické obnovenie: "
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Pay Now"
+msgstr "Plaťte teraz"
+
+#: includes/class-wc-vivacom-smart-helpers.php:973
+#: includes/class-wc-vivacom-smart.php:121
+msgid "Pay using 30+ methods (cards, digital wallets, local payment methods, online banking, and more)"
+msgstr "Plaťte pomocou 30+ metód (karty, digitálne peňaženky, miestne platobné metódy, online bankovníctvo a ďalšie)"
+
+#: includes/class-wc-vivacom-smart.php:532
+#: includes/class-wc-vivacom-smart.php:574
+#: includes/class-wc-vivacom-smart.php:583
+#: includes/class-wc-vivacom-smart.php:592
+msgid "Please try to save your settings again and if the source is empty, Viva.com plugin will try to create a new source for your website."
+msgstr "Prosím, skúste si znova uložiť nastavenia a ak je zdroj prázdny, Viva.com plugin sa pokúsi vytvoriť nový zdroj pre vašu webovú stránku."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1030
+msgid "Preauthorized Payments"
+msgstr "Predautorizované platby"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1008
+msgid "Processing"
+msgstr "Spracovanie"
+
+#: includes/class-wc-vivacom-smart-helpers.php:984
+#: includes/class-wc-vivacom-smart-helpers.php:991
+msgid "Provides a list with all source codes that are set in your Viva.com banking app."
+msgstr "Poskytuje zoznam všetkých zdrojových kódov, ktoré sú nastavené vo vašej Viva.com bankovej aplikácii."
+
+#: includes/class-wc-vivacom-smart.php:644
+msgid "Sample Bank"
+msgstr "Vzorková banka"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1014
+msgid "Select a color or enter a HEX code."
+msgstr "Vyberte farbu alebo zadajte HEX kód."
+
+#: includes/class-wc-vivacom-smart-helpers.php:875
+msgid "Set the title and description of the payment gateway. Title and description are visible to end users in the checkout page."
+msgstr "Nastavte názov a popis platobnej brány. Názov a popis sú viditeľné pre koncových používateľov na stránke pokladne."
+
+#: wc-vivacom-smart.php:296
+msgid "Settings"
+msgstr "Prostredia"
+
+#: includes/class-wc-vivacom-smart-helpers.php:896
+msgid "Set Viva.com API credentials"
+msgstr "Nastavte Viva.com API prihlasovacie údaje"
+
+#: includes/class-wc-vivacom-smart-helpers.php:949
+msgid "Show advanced settings"
+msgstr "Zobraziť pokročilé nastavenia"
+
+#: includes/class-wc-vivacom-smart-helpers.php:951
+msgid "Show advanced settings. If this checkbox is unchecked, the plugin will use default settings."
+msgstr "Zobraziť pokročilé nastavenia. Ak je toto zaškrtávacie políčko odškrtnuté, plugin použije predvolené nastavenia."
+
+#: includes/class-wc-vivacom-smart-helpers.php:996
+msgid "Show logo on checkout page"
+msgstr "Zobraziť logo na stránke pri pokladni"
+
+#. Description of the plugin
+msgid "Take secure online payments on your WooCommerce store with Viva.com Smart Checkout."
+msgstr "Zabezpečte bezpečné online platby vo vašom WooCommerce obchode s Viva.com Smart Checkout."
+
+#: includes/class-wc-vivacom-smart.php:269
+msgid "Thank you for your order, please click the button below to pay."
+msgstr "Ďakujeme za vašu objednávku, prosím, kliknite na tlačidlo nižšie a zaplatte."
+
+#: includes/class-wc-vivacom-smart.php:383
+msgid "Thank you for your order. We are now redirecting you to make your payment."
+msgstr "Ďakujem za vašu objednávku. Teraz vás presmerujeme na uskutočnenie platby."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:249
+msgid "The Order was cancelled"
+msgstr "Príkaz bol zrušený"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:213
+#: includes/class-wc-vivacom-smart-endpoints.php:231
+#: includes/class-wc-vivacom-smart-endpoints.php:254
+msgid "There was a problem processing your payment. Please try again"
+msgstr "Bol problém so spracovaním vašej platby. Prosím, skúste to znova"
+
+#: includes/class-wc-vivacom-smart.php:367
+#: includes/class-wc-vivacom-smart.php:372
+msgid "There was a problem processing your payment. Please try again or use an other payment method."
+msgstr "Bol problém so spracovaním vašej platby. Skúste to prosím znova alebo použite inú platobnú metódu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:241
+#: includes/class-wc-vivacom-smart-helpers.php:315
+#: includes/class-wc-vivacom-smart-helpers.php:389
+msgid "The transaction ID for this order could not be found. Something is wrong!"
+msgstr "ID transakcie pre túto objednávku sa nepodarilo nájsť. Niečo nie je v poriadku!"
+
+#: wc-vivacom-smart.php:107
+#: wc-vivacom-smart.php:118
+msgid "The Viva.com payment gateway requires WooCommerce. Download link %s here."
+msgstr "Platobná brána Viva.com vyžaduje WooCommerce. Odkaz na stiahnutie %s tu."
+
+#: includes/class-wc-vivacom-smart-helpers.php:234
+#: includes/class-wc-vivacom-smart-helpers.php:309
+#: includes/class-wc-vivacom-smart-helpers.php:383
+msgid "The viva order code for this order could not be found. Something is wrong!"
+msgstr "Kód príkazu pre túto objednávku sa nepodarilo nájsť. Niečo nie je v poriadku!"
+
+#: includes/class-wc-vivacom-smart-helpers.php:972
+msgid "This controls the description that the user sees during checkout."
+msgstr "Tým sa riadi popis, ktorý používateľ vidí pri pokladni."
+
+#: includes/class-wc-vivacom-smart-helpers.php:966
+msgid "This controls the title that the user sees during checkout."
+msgstr "Týmto sa kontroluje názov, ktorý používateľ vidí pri pokladni."
+
+#: includes/class-wc-vivacom-smart-helpers.php:964
+msgid "Title"
+msgstr "Názov"
+
+#. translators: credentials
+#: includes/class-wc-vivacom-smart-helpers.php:872
+msgid "To find out how to retrieve your credentials for the payment gateway, please visit the Viva.com Smart Checkout %1$s installation guide %2$s"
+msgstr "Ak chcete zistiť, ako získať svoje prihlasovacie údaje k platobnej bráne, navštívte prosím inštalačný sprievodca Viva.com Smart Checkout %s %s"
+
+#: includes/class-wc-vivacom-smart.php:485
+msgid "To test locally, edit your hosts file and add a domain, for example, \"vivademo.test\"."
+msgstr ""
+"\n"
+"Na lokálne testovanie upravte súbor hostiteľa a pridajte doménu, napríklad \"vivademo.test\""
+
+#: includes/class-wc-vivacom-smart-endpoints.php:154
+msgid "Transaction failed using Viva.com Smart Checkout"
+msgstr "Transakcia zlyhala pomocou Viva.com Smart Checkout"
+
+#: includes/class-wc-vivacom-smart.php:645
+msgid "Transaction Reference"
+msgstr "Transakčný odkaz"
+
+#: includes/class-wc-vivacom-smart-helpers.php:270
+#: includes/class-wc-vivacom-smart-helpers.php:343
+#: includes/class-wc-vivacom-smart-helpers.php:417
+msgid "Transaction Response Error: "
+msgstr "Chyba odpovede na transakciu: "
+
+#: includes/class-wc-vivacom-smart-endpoints.php:248
+msgid "Unpaid order cancelled - customer cancelled in smart checkout."
+msgstr "Nezaplatená objednávka zrušená – zákazník zrušený pri smart plate."
+
+#: wc-vivacom-smart.php:312
+msgid "View Viva.com Smart Checkout plugin documentation"
+msgstr "Pozrite si dokumentáciu pluginu Viva.com Smart Checkout"
+
+#. Author of the plugin
+msgid "Viva.com"
+msgstr "Viva.com"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:519
+msgid "Viva.com: A new %1$s source code has been created in the Viva.com banking app with code: %2$s and set as default source code."
+msgstr "Viva.com: V bankovej aplikácii Viva.com bol vytvorený nový zdrojový kód %s s kódom: %s a nastavený ako predvolený zdrojový kód."
+
+#: includes/class-wc-vivacom-smart.php:619
+msgid "Viva.com: Pretty permalinks must be enabled ( not plain text permalinks structure )."
+msgstr "Viva.com: Pekné trvalé odkazy musia byť povolené (nie obyčajná textová štruktúra permalinkov)."
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:131
+msgid "Viva.com Smart Card Token"
+msgstr "Viva.com Smart Card Token"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:126
+msgid "Viva.com Smart Card Token Id "
+msgstr "Viva.com Token ID čipovej karty "
+
+#: includes/class-wc-vivacom-smart.php:120
+msgid "Viva.com | Smart Checkout"
+msgstr "Viva.com | Smart Checkout"
+
+#: includes/class-wc-vivacom-smart-helpers.php:967
+msgid "Viva.com Smart Checkout"
+msgstr "Viva.com Smart Checkout"
+
+#. Plugin Name of the plugin
+msgid "Viva.com | Smart Checkout for WooCommerce"
+msgstr "Viva.com | Inteligentná pokladňa pre WooCommerce"
+
+#: includes/class-wc-vivacom-smart-helpers.php:881
+msgid "Viva.com Smart Checkout settings"
+msgstr "Viva.com Nastavenia Smart Checkout"
+
+#: includes/class-wc-vivacom-smart.php:508
+msgid "Viva.com: There was a problem updating hooks for your website."
+msgstr "Viva.com: Bol problém s aktualizáciou háčikov na vašej webovej stránke."
+
+#: includes/class-wc-vivacom-smart-helpers.php:132
+msgid "Viva.com Transaction status: "
+msgstr "Viva.com Stav transakcie: "
+
+#: includes/class-wc-vivacom-smart.php:482
+msgid "Viva.com Warning: A valid domain name is needed for Viva.com services to work correctly."
+msgstr "Viva.com Upozornenie: Na správne fungovanie Viva.com služieb je potrebná platná doména."
+
+#: includes/class-wc-vivacom-smart.php:505
+msgid "Viva.com: You are ready to receive payment notifications. Your hooks have been updated successfully."
+msgstr "Viva.com: Ste pripravení dostávať oznámenia o platbách. Vaše háčiky boli úspešne aktualizované."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:524
+msgid "Viva.com: You changed or updated your %1$s credentials, a %2$s source code for your domain was found with name: %3$s, and set as default source code."
+msgstr "Viva.com: Zmenili ste alebo aktualizovali svoje prihlasovacie údaje %s, bol nájdený zdrojový kód %s pre vašu doménu s názvom: %s a nastavený ako predvolený zdrojový kód."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:544
+msgid "Viva.com: Your %1$s source code: %2$s is verified and you are ready to accept payments."
+msgstr "Viva.com: Váš zdrojový kód %s: %s je overený a ste pripravení prijímať platby."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:230
+#: includes/class-wc-vivacom-smart.php:257
+#: includes/class-wc-vivacom-smart.php:452
+#: includes/class-wc-vivacom-smart.php:493
+msgid "Viva.com: Your %s credentials are NOT valid. Please check your credentials!"
+msgstr "Viva.com: Vaše %s prihlasovacie údaje NIE SÚ platné. Prosím, skontrolujte si svoje kvalifikácie!"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:498
+#: includes/class-wc-vivacom-smart.php:529
+msgid "Viva.com: Your %s credentials are valid."
+msgstr "Viva.com: Vaše %s prihlasovacie údaje sú platné."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:549
+#: includes/class-wc-vivacom-smart.php:556
+#: includes/class-wc-vivacom-smart.php:563
+#: includes/class-wc-vivacom-smart.php:570
+#: includes/class-wc-vivacom-smart.php:579
+#: includes/class-wc-vivacom-smart.php:588
+msgid "Viva.com: Your %s credentials are valid and connection with Viva.com was successful."
+msgstr "Viva.com: Vaše %s prihlasovacie údaje sú platné a spojenie s Viva.com bolo úspešné."
+
+#: includes/class-wc-vivacom-smart.php:598
+msgid "Viva.com: Your source code is empty. Please save your settings. Viva.com plugin will try to create a new source for your website."
+msgstr "Viva.com: Tvoj zdrojový kód je prázdny. Prosím, uložte si nastavenia. Viva.com plugin sa pokúsi vytvoriť nový zdroj pre vašu webovú stránku."
+
+#: includes/class-wc-vivacom-smart.php:203
+msgid "Void Viva.com Payment"
+msgstr "Neplatnosť Viva.com"
+
+#: includes/class-wc-vivacom-smart-helpers.php:978
+msgid "WARNING: Only available to Greek Viva.com accounts. <br>Example: 90:3,180:6<br>Order total 90 euro -> allow 0 and 3 installments <br>Order total 180 euro -> allow 0, 3 and 6 installments<br>Leave empty in case you do not want to offer installments."
+msgstr "UPOZORNENIE: Dostupné len pre grécke Viva.com účty. <br>Príklad: 90:3 180:6<br>Celková suma objednávky 90 eur -> povolenie 0 a 3 splátky <br>Celková suma objednávky 180 eur -> povolenie 0, 3 a 6 splátok<br>Nechajte prázdne, ak nechcete ponúkať splátky."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:551
+msgid "We are in the process of reviewing your %1$s website \"%2$s\"."
+msgstr "Práve kontrolujeme vašu webovú stránku %%1$s \"%%2$s\"."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:157
+msgid "with Viva-CorrelationId: "
+msgstr "s Viva-CorrelationId: "
+
+#: includes/class-wc-vivacom-smart-helpers.php:299
+#: includes/class-wc-vivacom-smart-helpers.php:373
+msgid "Wrong order status for capturing."
+msgstr "Stav nesprávneho poradia pri zachytávaní."
+
+#: includes/class-wc-vivacom-smart-helpers.php:303
+#: includes/class-wc-vivacom-smart-helpers.php:377
+msgid "Wrong payment method of order."
+msgstr "Nesprávny spôsob platby."
+
+#: includes/class-wc-vivacom-smart-helpers.php:319
+#: includes/class-wc-vivacom-smart-helpers.php:393
+msgid "Wrong transaction type!"
+msgstr "Nesprávny typ transakcie!"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:165
+msgid "You are not allowed to change the Card Token."
+msgstr "Nie je dovolené meniť Card Token."
+
+#: includes/class-wc-vivacom-smart-helpers.php:228
+msgid "You cannot edit an already refunded or canceled order."
+msgstr "Nemôžete upravovať už vrátenú alebo zrušenú objednávku."
+
+#: includes/class-wc-vivacom-smart.php:647
+msgid "YourCompanyName"
+msgstr "Názov vašej spoločnosti"
+
+#. translators: domain
+#: includes/class-wc-vivacom-smart.php:484
+msgid "Your domain, \"%s\", does not seem valid."
+msgstr "Vaša doména, \"%%s\", sa nezdá byť platná."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1003
+msgid "Your WooCommerce will be updated to this status after successful payment on Viva.com (default = completed)."
+msgstr "Váš WooCommerce bude aktualizovaný na tento stav po úspešnej platbe na Viva.com (predvolené = dokončené)."
+
+#: includes/class-wc-vivacom-smart.php:510
+msgid "You will be not able to receive payment notifications and your orders will not be updated."
+msgstr "Nebudete môcť dostávať upozornenia na platby a vaše objednávky nebudú aktualizované."

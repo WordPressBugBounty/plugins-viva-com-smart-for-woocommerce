@@ -1,0 +1,528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-17T13:18:44+00:00\n"
+"PO-Revision-Date: 2026-07-17T13:18:44+00:00\n"
+"Language: et\n"
+"Plural-Forms: nplurals = 2; plural = (n !== 1)\n"
+"X-Generator: Tolgee\n"
+
+#: includes/class-wc-vivacom-smart-helpers.php:945
+msgid "Advanced settings"
+msgstr "Täpsemad seaded"
+
+#: includes/class-wc-vivacom-smart.php:646
+msgid "Amount"
+msgstr "Kogus"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1012
+msgid "Brand color"
+msgstr "Brändivärv"
+
+#: includes/class-wc-vivacom-smart.php:530
+msgid "But there was an error trying to create a new source."
+msgstr "Aga uue allika loomisel tekkis viga."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:558
+msgid "But your %1$s source code: %2$s has been BLOCKED. Please check your latest email from Viva.com Support for more info."
+msgstr "Aga sinu %s lähtekood: %s on BLOKEERITUD. Lisainfo saamiseks vaadake palun oma viimast e-kirja Viva.com tugiteenusest."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:581
+msgid "But your %1$s source code: %2$s has wrong redirection urls."
+msgstr "Aga sinu %s lähtekood: %s aadressil on valed suunamise URL-id."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:565
+msgid "But your %1$s source code: %2$s is NOT active."
+msgstr "Aga sinu %s lähtekood: %s EI OLE aktiivne."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:590
+msgid "But your %1$s source code: %2$s is not found."
+msgstr "Aga sinu %s lähtekoodi: %s ei leita."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:572
+msgid "But your %1$s source code: %2$s is not valid for this domain."
+msgstr "Aga sinu %s lähtekood: %s ei kehti selle domeeni jaoks."
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Cancel"
+msgstr "Tühista"
+
+#: includes/class-wc-vivacom-smart.php:250
+msgid "Cancel of prauthorized payment failed: %s"
+msgstr "Eelvolitatud makse tühistamine ebaõnnestus: %s"
+
+#: includes/class-wc-vivacom-smart.php:252
+msgid "Cancel of prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Eelvolitatud makse tühistamine õnnestus: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:223
+msgid "Capture prauthorized payment failed: %s"
+msgstr "Eelvolitatud makse püüdmine ebaõnnestus: %s"
+
+#: includes/class-wc-vivacom-smart.php:225
+msgid "Capture prauthorized payment successfull: Tranaction Id: %s"
+msgstr "Eelvolitatud makse hõivamine õnnestus: Tranaction ID: %s"
+
+#: includes/class-wc-vivacom-smart.php:202
+msgid "Capture Viva.com Payment"
+msgstr "Püüa Viva.com makse"
+
+#: includes/class-wc-vivacom-smart.php:531
+#: includes/class-wc-vivacom-smart.php:573
+#: includes/class-wc-vivacom-smart.php:582
+#: includes/class-wc-vivacom-smart.php:591
+msgid "Check the sources selection box in advanced settings to see your available source codes and set one from there if available."
+msgstr "Vaata täpsemates seadetes allikate valiku kasti, et näha oma saadaolevaid lähtekoode, ja määra sealt üks, kui see on saadaval."
+
+#: includes/class-wc-vivacom-smart-helpers.php:918
+msgid "Client ID provided by Viva.com."
+msgstr "Kliendi ID on esitanud Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:924
+msgid "Client ID provided by Viva.com. "
+msgstr "Kliendi ID on esitanud Viva.com. "
+
+#: includes/class-wc-vivacom-smart-helpers.php:930
+#: includes/class-wc-vivacom-smart-helpers.php:936
+msgid "Client Secret provided by Viva.com."
+msgstr "Kliendi saladus on esitatud Viva.com."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1007
+msgid "Completed"
+msgstr "Valmis"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1018
+msgid "Customer bank statement suffix"
+msgstr "Kliendi pangaväljavõtte sufiks"
+
+#: includes/class-wc-vivacom-smart-helpers.php:922
+msgid "Demo Client ID"
+msgstr "Demo kliendi ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:934
+msgid "Demo Client Secret"
+msgstr "Demo kliendi saladus"
+
+#: includes/class-wc-vivacom-smart-helpers.php:901
+msgid "Demo mode"
+msgstr "Demo režiim"
+
+#: includes/class-wc-vivacom-smart-helpers.php:912
+msgid "Demo mode credentials"
+msgstr "Demo režiimi andmed"
+
+#: includes/class-wc-vivacom-smart-helpers.php:989
+msgid "Demo Source Code List"
+msgstr "Demo lähtekoodide nimekiri"
+
+#: includes/class-wc-vivacom-smart-helpers.php:970
+msgid "Description"
+msgstr "Kirjeldus"
+
+#: wc-vivacom-smart.php:312
+msgid "Documentation"
+msgstr "Dokumentatsioon"
+
+#: includes/class-wc-vivacom-smart-helpers.php:903
+msgid "Enable demo mode"
+msgstr "Luba demo režiim"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1032
+msgid "Enable Preauthorized Payments"
+msgstr "Luba eelvolitatud maksed"
+
+#: includes/class-wc-vivacom-smart-helpers.php:998
+msgid "Enable Viva.com logo on checkout page (default = yes)."
+msgstr "Luba Viva.com logo kassalehel (vaikimisi = jah)."
+
+#: includes/class-wc-vivacom-smart-helpers.php:885
+#: includes/class-wc-vivacom-smart-helpers.php:887
+msgid "Enable Viva.com Smart Checkout"
+msgstr "Luba Viva.com nutikas kassa"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1020
+msgid "Enter the value your customers will see on their transactions. Use a recognizable name e.g. the legal entity name or the website address to avoid potential disputes and chargebacks. Can contain only Latin characters, numbers, and space"
+msgstr "Sisesta väärtus, mida kliendid oma tehingutel näevad. Kasutage äratuntavat nime, näiteks juriidilise isiku nime või veebisaidi aadressi, et vältida võimalikke vaidlusi ja tagasimakseid. Võib sisaldada ainult ladina tähemärke, numbreid ja tühikut"
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Full refund was executed with ID: "
+msgstr "Täielik tagasimakse tehti ID-ga: "
+
+#: wc-vivacom-smart.php:313
+msgid "Get support"
+msgstr "Hankige tuge"
+
+#: wc-vivacom-smart.php:313
+msgid "Get support from Viva.com Team"
+msgstr "Saage tuge Viva.com meeskonnalt"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+msgstr "https://wordpress.org/plugins/viva-com-smart-for-woocommerce"
+
+#. Author URI of the plugin
+msgid "https://www.viva.com/"
+msgstr "https://www.viva.com/"
+
+#. translators: Demo Mode
+#: includes/class-wc-vivacom-smart-helpers.php:874
+msgid "If Demo Mode is enabled, please use the credentials you got from %1$s demo.vivapayments.com %2$s."
+msgstr "Kui demo režiim on lubatud, kasuta palun mandaate, mille said %s demo.vivapayments.com %s."
+
+#: includes/class-wc-vivacom-smart-helpers.php:976
+msgid "Instalments"
+msgstr "Osad"
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:612
+msgid "Invalid currency. Please check credentials or store currency. Allowed currencies are: %s"
+msgstr "Kehtetu valuuta. Palun kontrollige mandaate või hoidke valuutat. Lubatud valuutad on: %s"
+
+#: includes/class-wc-vivacom-smart-helpers.php:916
+msgid "Live Client ID"
+msgstr "Live kliendi ID"
+
+#: includes/class-wc-vivacom-smart-helpers.php:928
+msgid "Live Client Secret"
+msgstr "Live-kliendi saladus"
+
+#: includes/class-wc-vivacom-smart-helpers.php:908
+msgid "Live mode credentials"
+msgstr "Live-režiimi andmed"
+
+#: includes/class-wc-vivacom-smart-helpers.php:982
+msgid "Live Source Code List"
+msgstr "Reaalajas lähtekoodide nimekiri"
+
+#: includes/class-wc-vivacom-smart.php:509
+msgid "Note that your site must be publicly accessible. Endpoints must be accessible from the web."
+msgstr "Pane tähele, et teie sait peab olema avalikult kättesaadav. Lõpp-punktid peavad olema ligipääsetavad veebist."
+
+#: includes/class-wc-vivacom-smart-helpers.php:121
+msgid "Order has been paid with Viva.com Smart Checkout, Transaction Id:"
+msgstr "Tellimus on tasutud Viva.com Smart Checkoutiga, tehingu ID:"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:34
+msgid "Order is currently awaiting payment. After successful payment, we will send you an email confirmation."
+msgstr "Tellimus ootab praegu makset. Pärast edukat makset saadame teile e-posti teel kinnituse."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1002
+msgid "Order status after successful payment."
+msgstr "Tellimuse staatus pärast edukat makset."
+
+#: includes/class-wc-vivacom-smart-helpers.php:265
+msgid "Partial refund was executed with ID: "
+msgstr "Osaline tagasimakse sooritati ID-ga: "
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:267
+msgid "Payment method used for automatic renewal: "
+msgstr "Makseviis, mida kasutatakse automaatseks uuendamiseks: "
+
+#: includes/class-wc-vivacom-smart.php:406
+msgid "Pay Now"
+msgstr "Maksa kohe"
+
+#: includes/class-wc-vivacom-smart-helpers.php:973
+#: includes/class-wc-vivacom-smart.php:121
+msgid "Pay using 30+ methods (cards, digital wallets, local payment methods, online banking, and more)"
+msgstr "Maksa 30+ meetodiga (kaardid, digitaalsed rahakotid, kohalikud makseviisid, internetipank ja palju muud)"
+
+#: includes/class-wc-vivacom-smart.php:532
+#: includes/class-wc-vivacom-smart.php:574
+#: includes/class-wc-vivacom-smart.php:583
+#: includes/class-wc-vivacom-smart.php:592
+msgid "Please try to save your settings again and if the source is empty, Viva.com plugin will try to create a new source for your website."
+msgstr "Palun proovi oma seaded uuesti salvestada ja kui allikas on tühi, proovib Viva.com plugin luua sinu veebilehele uue allika."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1030
+msgid "Preauthorized Payments"
+msgstr "Eelvolitatud maksed"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1008
+msgid "Processing"
+msgstr "Töötlemine"
+
+#: includes/class-wc-vivacom-smart-helpers.php:984
+#: includes/class-wc-vivacom-smart-helpers.php:991
+msgid "Provides a list with all source codes that are set in your Viva.com banking app."
+msgstr "Pakub nimekirja kõigist lähtekoodidest, mis on määratud sinu Viva.com pangarakenduses."
+
+#: includes/class-wc-vivacom-smart.php:644
+msgid "Sample Bank"
+msgstr "Näidispank"
+
+#: includes/class-wc-vivacom-smart-helpers.php:1014
+msgid "Select a color or enter a HEX code."
+msgstr "Vali värv või sisesta HEX-kood."
+
+#: includes/class-wc-vivacom-smart-helpers.php:875
+msgid "Set the title and description of the payment gateway. Title and description are visible to end users in the checkout page."
+msgstr "Määra maksevärava pealkiri ja kirjeldus. Pealkiri ja kirjeldus on lõppkasutajatele nähtavad kassalehel."
+
+#: wc-vivacom-smart.php:296
+msgid "Settings"
+msgstr "Keskkonnad"
+
+#: includes/class-wc-vivacom-smart-helpers.php:896
+msgid "Set Viva.com API credentials"
+msgstr "Sea Viva.com API mandaate"
+
+#: includes/class-wc-vivacom-smart-helpers.php:949
+msgid "Show advanced settings"
+msgstr "Näita täpsemaid seadeid"
+
+#: includes/class-wc-vivacom-smart-helpers.php:951
+msgid "Show advanced settings. If this checkbox is unchecked, the plugin will use default settings."
+msgstr "Näita täpsemaid seadeid. Kui see linnuke pole märgitud, kasutab plugin vaikimisi seadeid."
+
+#: includes/class-wc-vivacom-smart-helpers.php:996
+msgid "Show logo on checkout page"
+msgstr "Näita logo kassalehel"
+
+#. Description of the plugin
+msgid "Take secure online payments on your WooCommerce store with Viva.com Smart Checkout."
+msgstr "Tee turvalisi veebimakseid oma WooCommerce poes Viva.com Smart Checkoutiga."
+
+#: includes/class-wc-vivacom-smart.php:269
+msgid "Thank you for your order, please click the button below to pay."
+msgstr "Täname tellimuse eest, palun klõpsa alloleval nupul, et maksta."
+
+#: includes/class-wc-vivacom-smart.php:383
+msgid "Thank you for your order. We are now redirecting you to make your payment."
+msgstr "Aitäh tellimuse eest. Suuname teid nüüd makse tegemiseks."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:249
+msgid "The Order was cancelled"
+msgstr "Ordu tühistati"
+
+#: includes/class-wc-vivacom-smart-endpoints.php:213
+#: includes/class-wc-vivacom-smart-endpoints.php:231
+#: includes/class-wc-vivacom-smart-endpoints.php:254
+msgid "There was a problem processing your payment. Please try again"
+msgstr "Sinu makse töötlemisel tekkis probleem. Palun proovi uuesti"
+
+#: includes/class-wc-vivacom-smart.php:367
+#: includes/class-wc-vivacom-smart.php:372
+msgid "There was a problem processing your payment. Please try again or use an other payment method."
+msgstr "Sinu makse töötlemisel tekkis probleem. Palun proovi uuesti või kasuta mõnda teist makseviisi."
+
+#: includes/class-wc-vivacom-smart-helpers.php:241
+#: includes/class-wc-vivacom-smart-helpers.php:315
+#: includes/class-wc-vivacom-smart-helpers.php:389
+msgid "The transaction ID for this order could not be found. Something is wrong!"
+msgstr "Selle tellimuse tehingu ID-d ei leitud. Midagi on valesti!"
+
+#: wc-vivacom-smart.php:107
+#: wc-vivacom-smart.php:118
+msgid "The Viva.com payment gateway requires WooCommerce. Download link %s here."
+msgstr "Viva.com maksevärav nõuab WooCommerce'i. Laadi link %s alla siit."
+
+#: includes/class-wc-vivacom-smart-helpers.php:234
+#: includes/class-wc-vivacom-smart-helpers.php:309
+#: includes/class-wc-vivacom-smart-helpers.php:383
+msgid "The viva order code for this order could not be found. Something is wrong!"
+msgstr "Selle tellimuse viva koodi ei leitud. Midagi on valesti!"
+
+#: includes/class-wc-vivacom-smart-helpers.php:972
+msgid "This controls the description that the user sees during checkout."
+msgstr "See kontrollib kirjeldust, mida kasutaja kassas näeb."
+
+#: includes/class-wc-vivacom-smart-helpers.php:966
+msgid "This controls the title that the user sees during checkout."
+msgstr "See kontrollib pealkirja, mida kasutaja kassas näeb."
+
+#: includes/class-wc-vivacom-smart-helpers.php:964
+msgid "Title"
+msgstr "Pealkiri"
+
+#. translators: credentials
+#: includes/class-wc-vivacom-smart-helpers.php:872
+msgid "To find out how to retrieve your credentials for the payment gateway, please visit the Viva.com Smart Checkout %1$s installation guide %2$s"
+msgstr "Et teada saada, kuidas oma maksevärava mandaadid kätte saada, külastage palun Viva.com Smart Checkout %s paigaldusjuhendit %s"
+
+#: includes/class-wc-vivacom-smart.php:485
+msgid "To test locally, edit your hosts file and add a domain, for example, \"vivademo.test\"."
+msgstr ""
+"\n"
+"Kohapeal testimiseks muuda hosti faili ja lisa domeen, näiteks \"vivademo.test\""
+
+#: includes/class-wc-vivacom-smart-endpoints.php:154
+msgid "Transaction failed using Viva.com Smart Checkout"
+msgstr "Tehing ebaõnnestus Viva.com Smart Checkouti kasutamisel"
+
+#: includes/class-wc-vivacom-smart.php:645
+msgid "Transaction Reference"
+msgstr "Tehinguviide"
+
+#: includes/class-wc-vivacom-smart-helpers.php:270
+#: includes/class-wc-vivacom-smart-helpers.php:343
+#: includes/class-wc-vivacom-smart-helpers.php:417
+msgid "Transaction Response Error: "
+msgstr "Tehingu vastuse viga: "
+
+#: includes/class-wc-vivacom-smart-endpoints.php:248
+msgid "Unpaid order cancelled - customer cancelled in smart checkout."
+msgstr "Maksmata tellimus tühistatud – klient tühistati nutikas kassas."
+
+#: wc-vivacom-smart.php:312
+msgid "View Viva.com Smart Checkout plugin documentation"
+msgstr "Vaata Viva.com Smart Checkout plugina dokumentatsiooni"
+
+#. Author of the plugin
+msgid "Viva.com"
+msgstr "Viva.com"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:519
+msgid "Viva.com: A new %1$s source code has been created in the Viva.com banking app with code: %2$s and set as default source code."
+msgstr "Viva.com: Viva.com pangarakenduses on loodud uus %s lähtekood koodiga: %s ja määratud vaikimisi lähtekoodiks."
+
+#: includes/class-wc-vivacom-smart.php:619
+msgid "Viva.com: Pretty permalinks must be enabled ( not plain text permalinks structure )."
+msgstr "Viva.com: Ilusad permalingid peavad olema lubatud (mitte lihtteksti püsivate linkide struktuur)."
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:131
+msgid "Viva.com Smart Card Token"
+msgstr "Viva.com nutikaardi token"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:126
+msgid "Viva.com Smart Card Token Id "
+msgstr "Viva.com nutikaardi tokeni ID "
+
+#: includes/class-wc-vivacom-smart.php:120
+msgid "Viva.com | Smart Checkout"
+msgstr "Viva.com | Nutikas kassa"
+
+#: includes/class-wc-vivacom-smart-helpers.php:967
+msgid "Viva.com Smart Checkout"
+msgstr "Viva.com Nutikas kassa"
+
+#. Plugin Name of the plugin
+msgid "Viva.com | Smart Checkout for WooCommerce"
+msgstr "Viva.com | Nutikas kassa WooCommerce'i jaoks"
+
+#: includes/class-wc-vivacom-smart-helpers.php:881
+msgid "Viva.com Smart Checkout settings"
+msgstr "Viva.com Smart Checkout seaded"
+
+#: includes/class-wc-vivacom-smart.php:508
+msgid "Viva.com: There was a problem updating hooks for your website."
+msgstr "Viva.com: Teie veebilehe konksude uuendamisel tekkis probleem."
+
+#: includes/class-wc-vivacom-smart-helpers.php:132
+msgid "Viva.com Transaction status: "
+msgstr "Viva.com Tehingu staatus: "
+
+#: includes/class-wc-vivacom-smart.php:482
+msgid "Viva.com Warning: A valid domain name is needed for Viva.com services to work correctly."
+msgstr "Viva.com Hoiatus: Viva.com teenuste korrektseks toimimiseks on vaja kehtivat domeeninimi."
+
+#: includes/class-wc-vivacom-smart.php:505
+msgid "Viva.com: You are ready to receive payment notifications. Your hooks have been updated successfully."
+msgstr "Viva.com: Olete valmis saama makseteateid. Sinu konksud on edukalt uuendatud."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:524
+msgid "Viva.com: You changed or updated your %1$s credentials, a %2$s source code for your domain was found with name: %3$s, and set as default source code."
+msgstr "Viva.com: Sa muutsid või uuendasid oma %s volitusi, leiti sinu domeeni jaoks %s lähtekood nimega: %s, mis määrati vaikimisi lähtekoodiks."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:544
+msgid "Viva.com: Your %1$s source code: %2$s is verified and you are ready to accept payments."
+msgstr "Viva.com: Sinu %s lähtekood: %s on kinnitatud ja oled valmis makseid vastu võtma."
+
+#. translators: error_message
+#: includes/class-wc-vivacom-smart.php:230
+#: includes/class-wc-vivacom-smart.php:257
+#: includes/class-wc-vivacom-smart.php:452
+#: includes/class-wc-vivacom-smart.php:493
+msgid "Viva.com: Your %s credentials are NOT valid. Please check your credentials!"
+msgstr "Viva.com: Sinu %s andmed EI OLE kehtivad. Palun kontrollige oma volitusi!"
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:498
+#: includes/class-wc-vivacom-smart.php:529
+msgid "Viva.com: Your %s credentials are valid."
+msgstr "Viva.com: Sinu %s andmed on kehtivad."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:549
+#: includes/class-wc-vivacom-smart.php:556
+#: includes/class-wc-vivacom-smart.php:563
+#: includes/class-wc-vivacom-smart.php:570
+#: includes/class-wc-vivacom-smart.php:579
+#: includes/class-wc-vivacom-smart.php:588
+msgid "Viva.com: Your %s credentials are valid and connection with Viva.com was successful."
+msgstr "Viva.com: Sinu %s mandaadid on kehtivad ja ühendus Viva.com-ga õnnestus."
+
+#: includes/class-wc-vivacom-smart.php:598
+msgid "Viva.com: Your source code is empty. Please save your settings. Viva.com plugin will try to create a new source for your website."
+msgstr "Viva.com: Sinu lähtekood on tühi. Palun salvesta oma seaded. Viva.com plugin püüab luua sinu veebilehele uue allika."
+
+#: includes/class-wc-vivacom-smart.php:203
+msgid "Void Viva.com Payment"
+msgstr "Tühista Viva.com makse"
+
+#: includes/class-wc-vivacom-smart-helpers.php:978
+msgid "WARNING: Only available to Greek Viva.com accounts. <br>Example: 90:3,180:6<br>Order total 90 euro -> allow 0 and 3 installments <br>Order total 180 euro -> allow 0, 3 and 6 installments<br>Leave empty in case you do not want to offer installments."
+msgstr "HOIATUS: Saadaval ainult Kreeka Viva.com kontodele. <br>Näide: 90:3,180:6<br>Telli kokku 90 eurot -> luba 0 ja 3 osamakset <br>Telli kokku 180 eurot > luba 0, 3 ja 6 osamakset<br>Jäta tühjaks juhuks, kui sa ei soovi pakkuda osamakseid."
+
+#. translators: info_message
+#: includes/class-wc-vivacom-smart.php:551
+msgid "We are in the process of reviewing your %1$s website \"%2$s\"."
+msgstr "Me oleme parasjagu teie %%1$s veebilehte \"%%2$s\" üle vaatamas."
+
+#: includes/class-wc-vivacom-smart-endpoints.php:157
+msgid "with Viva-CorrelationId: "
+msgstr "Viva-CorrelationId-ga: "
+
+#: includes/class-wc-vivacom-smart-helpers.php:299
+#: includes/class-wc-vivacom-smart-helpers.php:373
+msgid "Wrong order status for capturing."
+msgstr "Vale järjekorra staatus jäädvustamisel."
+
+#: includes/class-wc-vivacom-smart-helpers.php:303
+#: includes/class-wc-vivacom-smart-helpers.php:377
+msgid "Wrong payment method of order."
+msgstr "Vale maksekorralduse meetod."
+
+#: includes/class-wc-vivacom-smart-helpers.php:319
+#: includes/class-wc-vivacom-smart-helpers.php:393
+msgid "Wrong transaction type!"
+msgstr "Vale tehingutüüp!"
+
+#: includes/class-wc-vivacom-smart-subscriptions.php:165
+msgid "You are not allowed to change the Card Token."
+msgstr "Kaardimärki ei tohi muuta."
+
+#: includes/class-wc-vivacom-smart-helpers.php:228
+msgid "You cannot edit an already refunded or canceled order."
+msgstr "Sa ei saa muuta juba tagastatud või tühistatud tellimust."
+
+#: includes/class-wc-vivacom-smart.php:647
+msgid "YourCompanyName"
+msgstr "YourCompanyName"
+
+#. translators: domain
+#: includes/class-wc-vivacom-smart.php:484
+msgid "Your domain, \"%s\", does not seem valid."
+msgstr "Sinu domeen, \"%%s\", ei tundu kehtiv."
+
+#: includes/class-wc-vivacom-smart-helpers.php:1003
+msgid "Your WooCommerce will be updated to this status after successful payment on Viva.com (default = completed)."
+msgstr "Sinu WooCommerce uuendatakse sellele staatusele pärast edukat makset Viva.com-l (vaikimisi = lõpetatud)."
+
+#: includes/class-wc-vivacom-smart.php:510
+msgid "You will be not able to receive payment notifications and your orders will not be updated."
+msgstr "Sa ei saa makseteavitust ja sinu tellimusi ei uuendata."

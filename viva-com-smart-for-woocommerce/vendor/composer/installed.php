@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'vivacom/woocommerce',
-        'pretty_version' => 'v1.1.1',
-        'version' => '1.1.1.0',
-        'reference' => 'aeb83a4fe798ea2377928032e71efa384aa4e0ea',
+        'pretty_version' => 'v1.2.0',
+        'version' => '1.2.0.0',
+        'reference' => 'e46d3874a3d6894bf8757a9208e06563b258cdf2',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,9 +22,9 @@
             'dev_requirement' => false,
         ),
         'vivacom/woocommerce' => array(
-            'pretty_version' => 'v1.1.1',
-            'version' => '1.1.1.0',
-            'reference' => 'aeb83a4fe798ea2377928032e71efa384aa4e0ea',
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => 'e46d3874a3d6894bf8757a9208e06563b258cdf2',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

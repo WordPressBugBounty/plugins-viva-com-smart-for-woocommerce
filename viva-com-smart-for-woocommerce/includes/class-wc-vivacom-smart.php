@@ -315,34 +315,29 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
 
 		$order_ref = $order_code ?? '';
 
-		wc_enqueue_js(
-			'
-			jQuery("body").block({
-					message: "' . __( 'Thank you for your order. We are now redirecting you to make your payment.', 'viva-com-smart-for-woocommerce' ) . '",
-					overlayCSS:
-					{
-						background: "#fff",
-						opacity: 0.6
-					},
-					css: {
-				        padding:        20,
-				        textAlign:      "center",
-				        color:          "#555",
-				        border:         "3px solid #aaa",
-				        backgroundColor:"#fff",
-				        cursor:         "wait",
-				        lineHeight:		"32px"
-				    }
-				});
-			jQuery("#submit_vivacom_smart_payment_form").click();
-		'
-		);
-
 		echo '<form action="' . esc_url( $action_adr ) . '" method="GET" id="vivacom_smart_payment_form">' . "\n" .
 			'<input type="hidden" name="Ref" value="' . esc_attr( $order_ref ) . '" />' . "\n" .
             '<input type="hidden" name="color" value="' . esc_attr( $brand_color ) . '" />' . "\n" .
             '<input type="submit" class="button alt" id="submit_vivacom_smart_payment_form" value="' . esc_html__( 'Pay Now', 'viva-com-smart-for-woocommerce' ) . '" /> <a class="button cancel" href="' . esc_url( $order->get_cancel_order_url() ) . '">' . esc_html__( 'Cancel', 'viva-com-smart-for-woocommerce' ) . '</a>' . "\n" .
 			'</form>';
+
+		$suffix = defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+
+		wp_enqueue_script(
+			'vivacom_smart_redirect',
+			plugins_url( '/assets/js/vivacom-smart-redirect' . $suffix . '.js', __FILE__ ),
+			array(),
+			WC_VIVA_COM_SMART_VERSION,
+			true
+		);
+
+		wp_localize_script(
+			'vivacom_smart_redirect',
+			'vivacom_smart_redirect_params',
+			array(
+				'redirect_message' => __( 'Thank you for your order. We are now redirecting you to make your payment.', 'viva-com-smart-for-woocommerce' ),
+			)
+		);
 	}
 
 	/**
@@ -419,14 +414,10 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
                             return;
                         }
 
-                        wp_enqueue_style('wp-color-picker');
-                        wp_enqueue_script('wp-color-picker');
-
-
                         wp_enqueue_script(
                             'vivacom_smart_admin',
                             plugins_url( '/assets/js/admin-vivacom-smart' . $suffix . '.js', __FILE__ ),
-                            array( 'jquery' ),
+                            array(),
                             WC_VIVA_COM_SMART_VERSION,
                             true
                         );
@@ -543,7 +534,11 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
 			if ( 'yes' === $webhook_created ) {
                 unset($notices['info']);
 				$notices['success'][] = __( 'Viva.com: You are ready to receive payment notifications. Your hooks have been updated successfully.', 'viva-com-smart-for-woocommerce' );
-			} elseif ( 'error' === $webhook_created ) {
+			} elseif ( 'limit_error' === $webhook_created ) {
+				$error  = __( 'Viva.com: Maximum Webhook per Event Type Limit Reached.', 'viva-com-smart-for-woocommerce' );
+				$error .= ' ' . __( 'You will be not able to receive payment notifications and your orders will not be updated.', 'viva-com-smart-for-woocommerce' );
+				$notices['errors'][] = $error;
+			} else {
 				$error  = __( 'Viva.com: There was a problem updating hooks for your website.', 'viva-com-smart-for-woocommerce' );
 				$error .= ' ' . __( 'Note that your site must be publicly accessible. Endpoints must be accessible from the web.', 'viva-com-smart-for-woocommerce' );
 				$error .= ' ' . __( 'You will be not able to receive payment notifications and your orders will not be updated.', 'viva-com-smart-for-woocommerce' );
@@ -711,8 +706,7 @@ class WC_Vivacom_Smart_Payment_Gateway extends WC_Payment_Gateway {
 					$this->source_code = $this->get_option( 'source_code' );
 				}
 			}
-			$webhook_creation_successful = WC_Vivacom_Smart_Helpers::create_webhook( $bearer_authentication );
-			$this->update_option( 'webhook_created', $webhook_creation_successful ? 'yes' : 'error' );
+			$this->update_option( 'webhook_created', WC_Vivacom_Smart_Helpers::create_webhook( $bearer_authentication ) );
 		}
 	}
 

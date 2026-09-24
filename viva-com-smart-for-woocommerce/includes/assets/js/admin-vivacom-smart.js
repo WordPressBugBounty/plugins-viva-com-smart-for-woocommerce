@@ -1,18 +1,92 @@
-jQuery( document ).ready(
-	function() {
+( function() {
 
-		var demoCheckbox = jQuery( '#woocommerce_vivacom_smart_test_mode' );
-		var demoMode     = demoCheckbox.is( ':checked' );
+	function init() {
 
-		var advanced_settings_checkbox = jQuery( '#woocommerce_vivacom_smart_advanced_settings_enabled' );
-		var advancedSettingsEnabled    = advanced_settings_checkbox.is( ':checked' );
+		function getRow( element ) {
+			return element ? element.closest( 'tr' ) : null;
+		}
 
-		jQuery('#woocommerce_vivacom_smart_brand_color').wpColorPicker();
+		function getRowById( id ) {
+			return getRow( document.getElementById( id ) );
+		}
 
-		var descriptor = jQuery('#woocommerce_vivacom_smart_dynamic_descriptor').first();
-		descriptor.prop('maxlength', 13);
-		var descriptorText = descriptor.val();
-		var descriptorRow = jQuery( descriptor ).closest( 'tr' );
+		function show( element ) {
+			if ( element ) {
+				element.style.display = '';
+			}
+		}
+
+		function hide( element ) {
+			if ( element ) {
+				element.style.display = 'none';
+			}
+		}
+
+		function toggle( element ) {
+			if ( ! element ) {
+				return;
+			}
+
+			if ( window.getComputedStyle( element ).display === 'none' ) {
+				show( element );
+			} else {
+				hide( element );
+			}
+		}
+
+		function isVisible( element ) {
+			return !! ( element && element.offsetParent );
+		}
+
+		var demoCheckbox = document.getElementById( 'woocommerce_vivacom_smart_test_mode' );
+		var demoMode     = demoCheckbox ? demoCheckbox.checked : false;
+
+		var advanced_settings_checkbox = document.getElementById( 'woocommerce_vivacom_smart_advanced_settings_enabled' );
+		var advancedSettingsEnabled    = advanced_settings_checkbox ? advanced_settings_checkbox.checked : false;
+
+		var brandColorField = document.getElementById( 'woocommerce_vivacom_smart_brand_color' );
+
+		if ( brandColorField ) {
+			var brandColorPicker = document.createElement( 'input' );
+
+			brandColorPicker.type                = 'color';
+			brandColorPicker.id                  = 'vivacom_brand_color_picker';
+			brandColorPicker.style.marginLeft    = '8px';
+			brandColorPicker.style.verticalAlign = 'middle';
+
+			if ( /^#?[0-9a-fA-F]{6}$/.test( brandColorField.value.trim() ) ) {
+				brandColorPicker.value = '#' + brandColorField.value.trim().replace( '#', '' );
+			}
+
+			brandColorField.insertAdjacentElement( 'afterend', brandColorPicker );
+
+			brandColorPicker.addEventListener(
+				'input',
+				function() {
+					brandColorField.value = brandColorPicker.value;
+				}
+			);
+
+			brandColorField.addEventListener(
+				'input',
+				function() {
+					var value = brandColorField.value.trim();
+
+					if ( /^#?[0-9a-fA-F]{6}$/.test( value ) ) {
+						brandColorPicker.value = '#' + value.replace( '#', '' );
+					}
+				}
+			);
+		}
+
+		var descriptor = document.getElementById( 'woocommerce_vivacom_smart_dynamic_descriptor' );
+
+		if ( descriptor ) {
+			descriptor.maxLength = 13;
+		}
+
+		var descriptorText = descriptor ? descriptor.value : '';
+		var descriptorRow  = getRow( descriptor );
 
 		var samplebank = vivacom_smart_admin_trans.sampleBank;
 		var transactionReference = vivacom_smart_admin_trans.transactionReference;
@@ -54,103 +128,118 @@ jQuery( document ).ready(
 			'</td>' +
 			'</tr>';
 
-		descriptorRow.after(descriptorPreview);
+		if ( descriptorRow ) {
+			descriptorRow.insertAdjacentHTML( 'afterend', descriptorPreview );
+		}
 
 		if ( demoMode ) {
-			jQuery( '#woocommerce_vivacom_smart_client_id' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_client_secret' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_source_code' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_title_live' ).hide();
+			hide( getRowById( 'woocommerce_vivacom_smart_client_id' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_client_secret' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_source_code' ) );
+			hide( document.getElementById( 'woocommerce_vivacom_smart_title_live' ) );
 		} else {
-			jQuery( '#woocommerce_vivacom_smart_demo_client_id' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_demo_client_secret' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_demo_source_code' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_title_demo' ).hide();
+			hide( getRowById( 'woocommerce_vivacom_smart_demo_client_id' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_demo_client_secret' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_demo_source_code' ) );
+			hide( document.getElementById( 'woocommerce_vivacom_smart_title_demo' ) );
 		}
 
-		if ( advancedSettingsEnabled) {
-			jQuery( '#woocommerce_vivacom_smart_main_descr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_title' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_description' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_order_status' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_logo_enabled' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_installments' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_brand_color' ).closest( 'tr' ).show();
-			jQuery( '#woocommerce_vivacom_smart_enable_preauthorizations' ).closest( 'tr' ).show();
-			descriptorRow.show();
-			jQuery('#vivacom_descriptor_preview').show();
+		if ( advancedSettingsEnabled ) {
+			show( document.getElementById( 'woocommerce_vivacom_smart_main_descr' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_title' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_description' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_order_status' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_logo_enabled' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_installments' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_brand_color' ) );
+			show( getRowById( 'woocommerce_vivacom_smart_enable_preauthorizations' ) );
+			show( descriptorRow );
+			show( document.getElementById( 'vivacom_descriptor_preview' ) );
 
-			if (demoCheckbox.is( ':checked' )) {
-				jQuery( '#woocommerce_vivacom_smart_demo_source_code' ).closest( 'tr' ).show();
+			if ( demoMode ) {
+				show( getRowById( 'woocommerce_vivacom_smart_demo_source_code' ) );
 			} else {
-				jQuery( '#woocommerce_vivacom_smart_source_code' ).closest( 'tr' ).show();
+				show( getRowById( 'woocommerce_vivacom_smart_source_code' ) );
 			}
 
 		} else {
-			jQuery( '#woocommerce_vivacom_smart_main_descr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_title' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_description' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_order_status' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_logo_enabled' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_installments' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_demo_source_code' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_source_code' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_brand_color' ).closest( 'tr' ).hide();
-			jQuery( '#woocommerce_vivacom_smart_enable_preauthorizations' ).closest( 'tr' ).hide();
-			descriptorRow.hide();
-			jQuery('#vivacom_descriptor_preview').hide();
+			hide( document.getElementById( 'woocommerce_vivacom_smart_main_descr' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_title' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_description' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_order_status' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_logo_enabled' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_installments' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_demo_source_code' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_source_code' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_brand_color' ) );
+			hide( getRowById( 'woocommerce_vivacom_smart_enable_preauthorizations' ) );
+			hide( descriptorRow );
+			hide( document.getElementById( 'vivacom_descriptor_preview' ) );
 
 		}
 
-		advanced_settings_checkbox.on(
-			'change',
-			function() {
-				jQuery( '#woocommerce_vivacom_smart_main_descr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_title' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_description' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_order_status' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_logo_enabled' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_installments' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_brand_color' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_enable_preauthorizations' ).closest( 'tr' ).toggle();
-				descriptorRow.toggle();
-				jQuery('#vivacom_descriptor_preview').toggle();
+		if ( advanced_settings_checkbox ) {
+			advanced_settings_checkbox.addEventListener(
+				'change',
+				function() {
+					toggle( document.getElementById( 'woocommerce_vivacom_smart_main_descr' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_title' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_description' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_order_status' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_logo_enabled' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_installments' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_brand_color' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_enable_preauthorizations' ) );
+					toggle( descriptorRow );
+					toggle( document.getElementById( 'vivacom_descriptor_preview' ) );
 
-				if (demoCheckbox.is( ':checked' )) {
-					jQuery( '#woocommerce_vivacom_smart_demo_source_code' ).closest( 'tr' ).toggle();
-				} else {
-					jQuery( '#woocommerce_vivacom_smart_source_code' ).closest( 'tr' ).toggle();
+					if ( demoCheckbox && demoCheckbox.checked ) {
+						toggle( getRowById( 'woocommerce_vivacom_smart_demo_source_code' ) );
+					} else {
+						toggle( getRowById( 'woocommerce_vivacom_smart_source_code' ) );
+					}
 				}
-			}
-		);
+			);
+		}
 
-		demoCheckbox.on(
-			'change',
-			function(){
-				jQuery( '#woocommerce_vivacom_smart_client_id' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_client_secret' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_demo_client_id' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_demo_client_secret' ).closest( 'tr' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_title_live' ).toggle();
-				jQuery( '#woocommerce_vivacom_smart_title_demo' ).toggle();
+		if ( demoCheckbox ) {
+			demoCheckbox.addEventListener(
+				'change',
+				function() {
+					toggle( getRowById( 'woocommerce_vivacom_smart_client_id' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_client_secret' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_demo_client_id' ) );
+					toggle( getRowById( 'woocommerce_vivacom_smart_demo_client_secret' ) );
+					toggle( document.getElementById( 'woocommerce_vivacom_smart_title_live' ) );
+					toggle( document.getElementById( 'woocommerce_vivacom_smart_title_demo' ) );
 
-				if ( advanced_settings_checkbox.is( ':checked' ) ) {
-					jQuery( '#woocommerce_vivacom_smart_demo_source_code' ).closest( 'tr' ).toggle();
-					jQuery( '#woocommerce_vivacom_smart_source_code' ).closest( 'tr' ).toggle();
+					if ( advanced_settings_checkbox && advanced_settings_checkbox.checked ) {
+						toggle( getRowById( 'woocommerce_vivacom_smart_demo_source_code' ) );
+						toggle( getRowById( 'woocommerce_vivacom_smart_source_code' ) );
+					}
 				}
-			}
-		)
+			);
+		}
 
-		descriptor.on('input', function(e) {
-			jQuery('#vivacom_descriptor_preview_text').html(e.target.value);
-		});
+		if ( descriptor ) {
+			descriptor.addEventListener(
+				'input',
+				function( e ) {
+					var previewText = document.getElementById( 'vivacom_descriptor_preview_text' );
 
-		var installmentsField = jQuery( '#woocommerce_vivacom_smart_installments' );
+					if ( previewText ) {
+						previewText.textContent = e.target.value;
+					}
+				}
+			);
+		}
+
+		var installmentsField = document.getElementById( 'woocommerce_vivacom_smart_installments' );
 		var installmentsError = vivacom_smart_admin_trans.installmentsError;
 
 		// Validates the instalments pattern: comma-separated amount:instalments pairs (e.g. 90:3,180:6). Empty is allowed.
 		function isValidInstallments( value ) {
-			var installmentsPattern = jQuery.trim( value );
+			var installmentsPattern = value.trim();
 
 			if ( installmentsPattern === '' ) {
 				return true;
@@ -167,54 +256,77 @@ jQuery( document ).ready(
 			return true;
 		}
 
-		function toggleInstallmentsError( show ) {
-			var error = installmentsField.next( '.vivacom-installments-error' );
+		function toggleInstallmentsError( showError ) {
+			var error = installmentsField.nextElementSibling;
 
-			if ( show ) {
-				installmentsField.css( 'border-color', '#dc3232' );
-				if ( ! error.length ) {
-					installmentsField.after(
+			if ( error && ! error.classList.contains( 'vivacom-installments-error' ) ) {
+				error = null;
+			}
+
+			if ( showError ) {
+				installmentsField.style.borderColor = '#dc3232';
+				if ( ! error ) {
+					installmentsField.insertAdjacentHTML(
+						'afterend',
 						'<p class="vivacom-installments-error" style="color:#dc3232; margin:4px 0 0;">' + installmentsError + '</p>'
 					);
 				}
 			} else {
-				installmentsField.css( 'border-color', '' );
-				error.remove();
+				installmentsField.style.borderColor = '';
+				if ( error ) {
+					error.remove();
+				}
 			}
 		}
 
-		if ( installmentsField.length ) {
+		if ( installmentsField ) {
 			var installmentsForm = installmentsField.closest( 'form' );
 
 			function refreshInstallmentsState() {
 				// Skip while the field is hidden (advanced settings disabled) so a
 				// stale saved value doesn't show an error against an invisible field.
-				if ( ! installmentsField.is( ':visible' ) ) {
+				if ( ! isVisible( installmentsField ) ) {
 					toggleInstallmentsError( false );
 					return;
 				}
-				toggleInstallmentsError( ! isValidInstallments( installmentsField.val() ) );
+				toggleInstallmentsError( ! isValidInstallments( installmentsField.value ) );
 			}
 
-			installmentsField.on( 'input blur', refreshInstallmentsState );
+			installmentsField.addEventListener( 'input', refreshInstallmentsState );
+			installmentsField.addEventListener( 'blur', refreshInstallmentsState );
 
-			installmentsForm.on( 'submit', function( e ) {
-				if ( installmentsField.is( ':visible' ) && ! isValidInstallments( installmentsField.val() ) ) {
-					e.preventDefault();
-					refreshInstallmentsState();
-					jQuery( 'html, body' ).animate(
-						{ scrollTop: installmentsField.closest( 'tr' ).offset().top - 100 },
-						300
-					);
-					installmentsField.focus();
-				}
-			} );
+			if ( installmentsForm ) {
+				installmentsForm.addEventListener(
+					'submit',
+					function( e ) {
+						if ( isVisible( installmentsField ) && ! isValidInstallments( installmentsField.value ) ) {
+							e.preventDefault();
+							refreshInstallmentsState();
+
+							var installmentsRow = installmentsField.closest( 'tr' );
+							var scrollTop       = installmentsRow.getBoundingClientRect().top + window.pageYOffset - 100;
+
+							window.scrollTo( { top: scrollTop, behavior: 'smooth' } );
+							installmentsField.focus();
+						}
+					}
+				);
+			}
 
 			// Re-evaluate when the field is shown/hidden via the advanced settings toggle.
-			advanced_settings_checkbox.on( 'change', refreshInstallmentsState );
+			if ( advanced_settings_checkbox ) {
+				advanced_settings_checkbox.addEventListener( 'change', refreshInstallmentsState );
+			}
 
 			// Run once on load to cover an already-saved invalid value.
 			refreshInstallmentsState();
 		}
 	}
-)
+
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', init );
+	} else {
+		init();
+	}
+
+} )();
